@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+  
+    <ion-row>
+      <ion-col class="ion-margin-5" size="12">
+        <ion-text class="ion-text-center">
+          <ion-title>Edit Product</ion-title>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form method="post">
+    <ion-item>
+      <ion-label position="stacked">Product Name in Arabic<span class="asterisk">*</span></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Product Name<span class="asterisk">*</span></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Barcode</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Category<span class="asterisk">*</span></ion-label> 
+      <ion-select name="" value="" >
+        <ion-select-option  value="1">Oils & Ghee</ion-select-option>
+        <ion-select-option  value="2">House Cleaners</ion-select-option>
+        <ion-select-option  value="3">Frozen Food</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Sub Category<span class="asterisk">*</span></ion-label>
+      <ion-select name="" value="" >
+        <ion-select-option  value="4"> Miscellaneous 1</ion-select-option>
+        <ion-select-option  value="5">Miscellaneous 2</ion-select-option>
+        <ion-select-option  value="6">Miscellaneous 3</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Selling Price</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Code price with VAT</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Near Expiry Notification</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">VAT<span class="asterisk">*</span></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Print Barcode</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">MBQ</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Available<span class="asterisk">*</span></ion-label> 
+      <ion-select name="" value="" >
+        <ion-select-option  value="1">Available</ion-select-option>
+        <ion-select-option  value="2">Not Available</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Loose Item<span class="asterisk">*</span></ion-label> 
+      <ion-select name="" value="" >
+        <ion-select-option  value="1">Yes</ion-select-option>
+        <ion-select-option  value="2">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+  </form>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row class="stick">
+    <ion-col size="6">
+      <ion-button type="" expand="block" class="cancel">Cancel</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button type="" expand="block" class="apply">Edit Product</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
