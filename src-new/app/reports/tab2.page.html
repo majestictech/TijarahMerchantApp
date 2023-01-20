@@ -1,0 +1,21 @@
+<ion-content [fullscreen]="true">
+  <div class="div-item">
+    <ion-buttons slot="start" style="padding-left:30px">
+      <ion-back-button icon="arrow-back-outline" defaultHref="Dashboard" style="color:white" text="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <h3>REPORTS</h3>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-button href="salesreport.page" class="report-button" shape="round" [routerLink]="['/salesreport']"  routerDirection="forward"><b>SALES REPORT</b></ion-button>
+  <ion-button href="" class="report-tab" shape="round"><b>VAT REPORT</b></ion-button>
+  <ion-button href="" class="report-tab" shape="round"><b>REFUND REPORT</b></ion-button>
+  <ion-button href="" class="report-tab" shape="round"><b>INVENTORY REPORT</b></ion-button>
+  <ion-button href="" class="report-tab" shape="round"><b>PURCHASE REPORT</b></ion-button>
+  <ion-button href="" class="report-tab" shape="round"><b>MEDIA REPORT</b></ion-button>
+  <ion-button href="" class="report-tab" shape="round"><b>CASHIER REPORT</b></ion-button>
+  
+</ion-content>

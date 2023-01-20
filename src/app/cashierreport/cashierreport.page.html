@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true">
+  <div class="div-item">
+    <ion-buttons slot="start" style="padding-left:30px">
+      <ion-back-button icon="arrow-back-outline" defaultHref="reports" style="color:white" text="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <h3>REPORTS</h3>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-card class="card-item"><b>CASHIER REPORT</b></ion-card>
+  <ion-row style="color:#006c35" style=" margin-left: 20px;">
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">MO<br><br>12</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">TU<br><br>13</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: #006c35;color:white;border-radius: 10px;padding: 6px;">WE<br><br>14</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">TH<br><br>15</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">FR<br><br>16</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">SA<br><br>17</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">SU<br><br>18</div>
+    </span>
+  </ion-row>
+  <ion-chip class="chip-item">
+    <ion-label><b>GENERATED REVENUE</b></ion-label>
+  </ion-chip>
+ 
+  
+  <ion-row>
+	<div id="salesChart" style="width: 100vw; margin: 0 auto"></div>
+  </ion-row>
+</ion-content>

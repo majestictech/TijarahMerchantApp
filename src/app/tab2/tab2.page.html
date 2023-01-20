@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+	<div class="div-item">
+		<ion-row>
+			<ion-col class="ion-text-center" style="padding-top:40px">
+				<h3>Store Reports</h3>
+			</ion-col>
+		</ion-row>
+	</div>
+	<ion-button class="report-button" shape="round" href="/salesreport" routerDirection="forward"><b>Sales Report</b></ion-button>
+	<ion-button class="report-tab" shape="round" href="/vatreport"
+		routerDirection="forward"><b>Vat Report</b></ion-button>
+	<ion-button class="report-tab" shape="round" [routerLink]="['/refundreport']" 
+		routerDirection="forward"><b>Refund Report</b></ion-button>
+	<ion-button class="report-tab" shape="round" href="/inventoryreport"
+		routerDirection="forward"><b>Inventory Report</b></ion-button>
+	<ion-button class="report-tab" shape="round" href="/purchasereport"
+		routerDirection="forward"><b>Purchase Report</b></ion-button>
+	<ion-button class="report-tab" shape="round" href="/mediareport"
+		routerDirection="forward"><b>Media Report</b></ion-button>
+	<ion-button class="report-tab" shape="round" href="/cashierreport"
+		routerDirection="forward"><b>Cashier Report</b></ion-button>
+
+</ion-content>

@@ -1,0 +1,27 @@
+{
+
+	"LOGIN":{	
+		"contactnumber":"رقم الاتصال",
+		"storesetup":"اكتمل إعداد المتجر",
+		"storecustomer":"عملاء المتجر",
+		"storeorders":"طلبيات المتجر",
+		"storeproducts":"منتجات المتجر",
+		"signin":"تسجيل الدخول",
+		"password":"كلمة السر",
+		"login":"الدخول",
+		"loggingin": "Logging In...",
+		"contactnumber":"رقم الاتصال"
+	},
+	"SETTING":{	
+		"selectlanguage":"اختيار اللغة",
+		"select": "تحديد",
+		"save":"حفظ"
+	},
+	
+	"GENERAL":{	
+		"selectlanguage":"اختيار اللغة",
+		"select": "تحديد",
+		"save":"حفظ"
+	}
+		
+}

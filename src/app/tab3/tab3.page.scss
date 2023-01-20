@@ -1,0 +1,22 @@
+//div css starts from here
+.div-item {
+    background-color: #006c35;
+    color:#fff;
+    height:18vh;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    padding-top:30px;
+}
+//div css ends here
+//card css starts here
+.card-item {
+    height: 13vh;
+   padding-bottom:20px;
+   text-align: left;
+}
+.greenback{
+	background:var(--ion-color-plusprimary, #006C35);
+	border-radius:8px 8px 0 0;
+	padding: 0 10px;
+    color: #fff;
+}

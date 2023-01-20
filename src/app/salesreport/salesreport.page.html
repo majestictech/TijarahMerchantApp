@@ -1,0 +1,122 @@
+<ion-content [fullscreen]="true">
+  <div class="div-item">
+    <ion-buttons slot="start" style="padding-left:30px">
+      <ion-back-button icon="arrow-back-outline" defaultHref="reports" style="color:white" text="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <h3>REPORTS</h3>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-card class="card-item"><b>SALES REPORT</b></ion-card>
+  <ion-row style="color:#006c35" style=" margin-left: 20px;">
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">MO<br><br>12</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">TU<br><br>13</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: #006c35;color:white;border-radius: 10px;padding: 6px;">WE<br><br>14</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">TH<br><br>15</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">FR<br><br>16</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">SA<br><br>17</div>
+    </span>
+    <span style="padding:8px">
+      <div style="background-color: white;border-radius: 10px;padding: 6px;">SU<br><br>18</div>
+    </span>
+  </ion-row>
+  <ion-chip class="chip-item">
+    <ion-label><b>GENERATED REVENUE</b></ion-label>
+  </ion-chip>
+  
+  
+  <ion-row>
+	<div id="salesChart" style="width: 100vw; margin: 10px auto">Loading Graph...</div>
+	</ion-row>
+	<ion-grid class="ion-text-center " style="border: 1px solid;border-radius: 15px;">  
+		<ion-row class="header-row" style="background-color: #006C35; border-radius: 8px;">
+			<ion-col>
+				<ion-text>Product</ion-text>
+			</ion-col>
+			<ion-col>
+				<ion-text>Units</ion-text>
+			</ion-col>
+			<ion-col>
+				<ion-text>Quantity</ion-text>
+			</ion-col>
+		</ion-row>
+
+		<ion-row>
+			<ion-col style="border-right: 1px solid" >
+				<ion-text>
+					<p><strong>Chips</strong></p>
+				</ion-text>
+				<ion-text>
+					<p><strong>Dates</strong></p>
+				</ion-text>
+				<ion-text>
+					<p><strong>Edible Oil</strong></p>
+				</ion-text>
+				<ion-text>
+					<p><strong>Chocolate</strong></p>
+				</ion-text>
+				<ion-text>
+					<p><strong>Detergent</strong></p>
+				</ion-text>
+				<ion-text>
+					<p><strong>Pulses</strong></p>
+				</ion-text>
+			</ion-col>
+
+			<ion-col style="border-right: 1px solid">
+				<ion-text>
+					<p>150</p>
+				</ion-text>
+				<ion-text>
+					<p>280</p>
+				</ion-text>
+				<ion-text>
+					<p>110</p>
+				</ion-text>
+				<ion-text>
+					<p>120</p>
+				</ion-text>
+				<ion-text>
+					<p>150</p>
+				</ion-text>
+				<ion-text>
+					<p>180</p>
+				</ion-text>
+			</ion-col>
+			<ion-col>
+				  <ion-text>
+					<p>500 gm</p>
+				  </ion-text>
+				   <ion-text>
+					<p>100 gm</p>
+				  </ion-text>
+				   <ion-text>
+					<p>1000 gm</p>
+				  </ion-text>
+				   <ion-text>
+					<p>100 gm</p>
+				  </ion-text>
+				   <ion-text>
+					<p>200 gm</p>
+				  </ion-text>
+				   <ion-text>
+					<p>300 gm</p>
+				  </ion-text>
+			</ion-col>	
+		</ion-row>
+	</ion-grid>
+</ion-content>

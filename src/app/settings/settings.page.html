@@ -1,0 +1,43 @@
+<ion-header>
+	<ion-toolbar >
+		<ion-buttons slot="start">
+		<ion-back-button defaultHref="home"></ion-back-button>
+		</ion-buttons>
+		<ion-buttons slot="start">
+			<ion-menu-button><img src="../assets/images/menu-outline.png" width="24"/></ion-menu-button>
+		</ion-buttons>
+	   <ion-row>
+			<ion-col class="ion-margin-5" size="6">
+				<ion-text text-center>
+				  <ion-title size="small">Settings</ion-title>
+				</ion-text>
+			</ion-col>
+			<!--<ion-col class="ion-margin-5 ion-text-right status" size="6">
+				<ion-text *ngIf = "this.env.NETWORK_STATUS == 'Offline'" >
+				  <img src="../assets/images/ellipse-offline.png" width="13" class="offline_icn" /> {{ 'HOME.offline' | translate }}
+				</ion-text>
+				<ion-text *ngIf = "this.env.NETWORK_STATUS == 'Online'" >
+				  <img src="../assets/images/ellipse-online.png" width="13" /> {{ 'HOME.online' | translate }}
+				</ion-text>
+			</ion-col>	-->	
+		</ion-row>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+	<form #form="ngForm" (ngSubmit)="majEditShop(form)" method="post">
+		<ion-item>
+			<ion-label>{{ 'SETTING.selectlanguage' | translate }}</ion-label>
+			<ion-select okText="{{ 'GENERAL.ok' | translate }}" cancelText="{{ 'CUSTOMER.cancel' | translate }}" placeholder="{{ 'SETTING.select' | translate }}" ngModel name="defaultLang">
+				<ion-select-option value="en" name="defaultLang">English</ion-select-option>
+				<ion-select-option value="ar" name="defaultLang">Arabic</ion-select-option>
+			</ion-select>
+		</ion-item>
+		<ion-row>
+			<ion-col>
+				<ion-button type="submit" expand="block" class="saveprint" (click)="majEditShop(form);">{{ 'SETTING.save' | translate }}</ion-button>
+			</ion-col>
+		</ion-row>
+	</form>
+	</ion-list>
+</ion-content>

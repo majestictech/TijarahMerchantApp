@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true" >
+	<div class="div-item">
+		<ion-row>
+		  <ion-col class="ion-text-center" style="padding-top: 5px;padding-right: 20px;">
+			<h2>Accounts</h2>
+		  </ion-col>
+		</ion-row>
+	</div><br>
+	<ion-card class="bg-clr">
+		<form>
+			<ion-grid>
+				<ion-item lines="full">
+					<ion-label position="floating"><ion-icon name="person" style="padding-right: 20px;"></ion-icon>First Name</ion-label>
+					<ion-input type="text" name="firstname" Style="text-underline-position: below;" placeholder="" required>
+					</ion-input>
+				</ion-item>
+				<ion-item lines="full">
+					<ion-label position="floating"><ion-icon name="person" style="padding-right: 20px;"></ion-icon>Last Name</ion-label>
+					<ion-input type="text" name="lastname" placeholder="" required>
+					</ion-input>
+				</ion-item>
+				<ion-item lines="full">
+					<ion-label position="floating">  <ion-icon name="mail" style="padding-right: 20px;"></ion-icon>Email</ion-label>
+					<ion-input type="email" placeholder="" required></ion-input>
+				</ion-item>
+				<ion-radio-group >
+					<ion-header style="padding:15px; float:center">
+						<ion-label style="font-size: 20px;color: #000; padding:15px;text-align: center ; margin-left: 80px;"><b>Language</b></ion-label>
+					</ion-header>
+					<ion-item >
+						<ion-label>English</ion-label>
+						<ion-radio  slot="start" value="english"  style="background-color: rgb(255, 255, 255);"  checked></ion-radio>
+					</ion-item>
+					<ion-item>
+						<ion-label>Arabic</ion-label>
+						<ion-radio  slot="start" value="arabic"  style="background-color: rgb(255, 255, 255); "></ion-radio>
+					</ion-item>
+				</ion-radio-group>	
+			</ion-grid>
+			<ion-button  role="button" shape="round" style="font-size: 14px; margin-left: 70px; margin-top: 10px; margin-bottom: 20px;">OK</ion-button>
+			<ion-button  role="button" shape="round" style="font-size: 14px; margin-left: 10px; margin-top: 10px; margin-bottom: 20px;" >CANCEL</ion-button>	
+		</form>
+	</ion-card>
+</ion-content>

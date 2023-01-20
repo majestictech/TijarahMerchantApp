@@ -1,0 +1,20 @@
+{
+	"LOGIN": {
+		"contactnumber": "Contact Number",
+		"storesetup": "Store Setup Completed",
+		"storecustomer": "Store Customers",
+		"storeorders": "Store Orders",
+		"storeproducts": "Store Products",
+		"signin": "Sign In",
+		"password": "Password",
+		"login": "Login",
+		"loggingin": "Logging In...",
+		"contactnumber": "Contact Number"
+	},
+	"SETTING": {
+		"selectlanguage": "Select Language",
+		"select": "Select",
+		"save":"Save"		
+	}
+	
+}
