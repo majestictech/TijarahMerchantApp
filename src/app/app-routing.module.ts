@@ -45,7 +45,15 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },  {
+    path: 'additem',
+    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule)
+  },
+  {
+    path: 'edititem',
+    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule)
   }
+
 ];
 @NgModule({
   imports: [

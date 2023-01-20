@@ -15,6 +15,14 @@
 		"selectlanguage": "Select Language",
 		"select": "Select",
 		"save":"Save"		
-	}
+	},
 	
+	"EDITPRODUCT": {
+		"editproduct": "Edit Product",
+		"productname": "Product Name",
+		"barcode": "Barcode",
+		"category": "Category",
+		"subcategory": "Sub-Category"
+	}
+
 }
