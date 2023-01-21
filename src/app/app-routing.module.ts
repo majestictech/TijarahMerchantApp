@@ -86,8 +86,23 @@ const routes: Routes = [
       preload: true,
 	  name: 'vendorlist'
     }
+  },
+  {
+    path: 'addinvoice',
+    loadChildren: () => import('./addinvoice/addinvoice.module').then( m => m.AddinvoicePageModule),
+    data: {
+      preload: true,
+	  name: 'addinvoice'
+    }
+  },
+  {
+    path: 'editinvoice',
+    loadChildren: () => import('./editinvoice/editinvoice.module').then( m => m.EditinvoicePageModule),
+    data: {
+      preload: true,
+	  name: 'editinvoice'
+    }
   }
-
 
 
 ];
