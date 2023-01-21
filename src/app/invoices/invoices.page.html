@@ -1,6 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>invoices</ion-title>
+    
+    <ion-row>
+      <ion-col size="2">
+        
+      </ion-col>	
+            
+      <ion-col size="8" class="ion-text-center" routerDirection="forward">
+        			
+      </ion-col>	
+      <ion-col size="2" class="ion-text-center">
+        <ion-button mode="ios" class="addinvoice"  routerDirection="forward">
+          <ion-icon name="add-circle"></ion-icon> 
+          Add Invoice
+        </ion-button>
+      </ion-col>	
+      
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
@@ -36,6 +52,8 @@
 				<ion-col size="2">
 					<ion-input type="date" placeholder=""></ion-input>
 				</ion-col>
+        <ion-button class="ok_btn" size="small">Ok</ion-button>
+				
       </ion-row>
     </ion-grid>
 </ion-content>
