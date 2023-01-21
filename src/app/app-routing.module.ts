@@ -87,7 +87,9 @@ const routes: Routes = [
 	  name: 'vendorlist'
     }
 
+
     
+
 
   },
   {
