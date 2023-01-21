@@ -86,6 +86,7 @@ const routes: Routes = [
       preload: true,
 	  name: 'vendorlist'
     }
+    
   }
 
 
