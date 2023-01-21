@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+  
+    <ion-row>
+      <ion-col class="ion-margin-5" size="12">
+        <ion-text class="ion-text-center">
+          <ion-title>{{ 'EDITPRODUCT.editproduct' | translate }}</ion-title>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form method="post">
+    <ion-item>
+      <ion-label position="stacked">{{ 'ADDITEM.productnamear' | translate }}<span class="asterisk">*</span></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.productname' | translate }}<span class="asterisk">*</span></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.barcode' | translate }}</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.category' | translate }}<span class="asterisk">*</span></ion-label> 
+      <ion-select name="" value="" >
+        <ion-select-option  value="1">Oils & Ghee</ion-select-option>
+        <ion-select-option  value="2">House Cleaners</ion-select-option>
+        <ion-select-option  value="3">Frozen Food</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.subcategory' | translate }}<span class="asterisk">*</span></ion-label>
+      <ion-select name="" value="" >
+        <ion-select-option  value="4"> Miscellaneous 1</ion-select-option>
+        <ion-select-option  value="5">Miscellaneous 2</ion-select-option>
+        <ion-select-option  value="6">Miscellaneous 3</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.sellingprice' | translate }}</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.codepricewithvat' | translate }}</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.nearexpirynotification' | translate }}</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.vat' | translate }}<span class="asterisk">*</span></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.printbarcode' | translate }}</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.mbq' | translate }}</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.available' | translate }}<span class="asterisk">*</span></ion-label> 
+      <ion-select name="" value="" >
+        <ion-select-option  value="1">{{ 'EDITPRODUCT.available' | translate }}</ion-select-option>
+        <ion-select-option  value="2">{{ 'EDITPRODUCT.notavailable' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.looseitem' | translate }}<span class="asterisk">*</span></ion-label> 
+      <ion-select name="" value="" >
+        <ion-select-option  value="1">{{ 'EDITPRODUCT.yes' | translate }}</ion-select-option>
+        <ion-select-option  value="2">{{ 'EDITPRODUCT.no' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+  </form>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row class="stick">
+    <ion-col size="6">
+      <ion-button type="" expand="block" class="cancel">{{ 'EDITPRODUCT.cancel' | translate }}</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button type="" expand="block" class="apply">{{ 'EDITPRODUCT.editproduct' | translate }}</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

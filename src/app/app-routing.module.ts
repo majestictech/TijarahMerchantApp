@@ -45,7 +45,51 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+
+    path: 'purchase',
+    loadChildren: () => import('./purchase/purchase.module').then( m => m.PurchasePageModule)
+  },
+  {
+    path: 'invoices',
+    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule),
+    data: {
+      preload: true,
+	  name: 'invoices'
+    }
+
+
+  },
+  {
+
+    path: 'additem',
+    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule),
+    data: {
+      preload: true,
+	  name: 'additem'
+    }
+  },
+  {
+    path: 'edititem',
+    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule),
+    data: {
+      preload: true,
+	  name: 'edititem'
+    }
+
+  },
+  {
+    path: 'vendorlist',
+    loadChildren: () => import('./vendorlist/vendorlist.module').then( m => m.VendorlistPageModule),
+    data: {
+      preload: true,
+	  name: 'vendorlist'
+    }
   }
+
+
+
 ];
 @NgModule({
   imports: [

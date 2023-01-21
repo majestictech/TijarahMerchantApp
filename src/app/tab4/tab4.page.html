@@ -1,12 +1,24 @@
-<ion-content [fullscreen]="true" >
-<div style="background-color: #f2efea; border:  5px solid #006C35; color: #285a27">
+<ion-content [fullscreen]="true" color="light">
+	<div class="div-item">
+	  <ion-row>
+		<ion-col class="ion-text-center" style="padding-top: 5px;padding-right: 20px;">
+		  <h2>Purchase</h2>
+		</ion-col>
+	  </ion-row>
+	</div><br>
+	<ion-row class="ion-margin-vertical" >
+		<div [routerLink]="['/invoices']" class="greyclr">Invoices</div>		
+		<div [routerLink]="['/vendors']" class="greyclr">Vendors</div>
+		<div [routerLink]="['/vendorlist']" class="greyclr">Vendor List</div>	
+	</ion-row>
+<!-- <div style="background-color: #f2efea; border:  5px solid #006C35; color: #285a27">
 	<div>
 		<ion-row>
 		  <ion-col class="ion-text-center" style="text-align: center">
 			<h1 style="font-size: 26px"><b>Dashboard</b></h1>
 		  </ion-col>
 		</ion-row>
-	</div><br>
+	</div><br> -->
 <!--
 	<ion-card style="background-color: #d5e2c7">
 		<form>
@@ -59,11 +71,11 @@
 	</ion-card>
 	-->
 
-	<div style="border: 5px solid #006C35; border-left:none; border-right:none; border-bottom:none; color: #4c6748; padding-top: 0; text-align: end">	
+	<!-- <div style="border: 5px solid #006C35; border-left:none; border-right:none; border-bottom:none; color: #4c6748; padding-top: 0; text-align: end">	
 		<ion-row>
-			<ion-col style="padding-right: 0px">
+			<ion-col style="padding-right: 0px"> -->
 			<!--<div id="salesChart" style="width: 100vw; margin:  "></div> -->
-				<span style="border: 2px solid #006C35;color: #2d5c32; border-top: 0px; border-right: 0px; margin-top: 0px; padding-top: 8px; font-size: 15px; border-bottom: 2px solid #006C35; text-align: center"><b>This Month</b></span>
+				<!-- <span style="border: 2px solid #006C35;color: #2d5c32; border-top: 0px; border-right: 0px; margin-top: 0px; padding-top: 8px; font-size: 15px; border-bottom: 2px solid #006C35; text-align: center"><b>This Month</b></span>
 				<ion-img src="../assets/images/graph2.jpg" alt="Graph" style="margin-top: 3px"></ion-img>
 			</ion-col>
 		</ion-row>
@@ -164,6 +176,12 @@
 				</ion-col>	
 			</ion-row>
 	</div>
-</div>
+</div> -->
+
+
+
+
+	
 </ion-content>
+
 

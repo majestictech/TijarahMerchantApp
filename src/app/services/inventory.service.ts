@@ -26,7 +26,11 @@ getProduct(): Observable<any> {
 	);
 }
 	
-		
+inventoryGraphData(): Observable<any> {
+	return this.http.get(this.env.API_URL+'/inventorygraph/505').pipe(
+	  map(results => results['graphdata'])
+	);
+  }	
   
   
 }
