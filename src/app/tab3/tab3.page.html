@@ -31,7 +31,7 @@
       </ion-col> -->
 
       <ion-col size="8">
-        <p>Product Name <span class="leftborder">&nbsp;Brand </span><span class="leftborder">&nbsp;Barcode</span></p>
+        <p>Product Name <span class="leftborder">&nbsp;Barcode</span></p>
       </ion-col>
       <ion-col size="4" ion-text-center>
         <p>Edit Products</p>
@@ -41,30 +41,28 @@
     </ion-row>
 
 
-  <ion-card class="card-item">
-    <ion-row>
+  <ion-card class="card-item" *ngFor="let product of productsList" >
+    <ion-row >
       <ion-col size="3" style="border-right:solid 1px;border-color: #cdcdcd;">
         <img src="../assets/images/oliveoil.jpg" style="padding-top: 20px;">
       </ion-col>
-      <ion-col size="7" style="padding-left: 20px;line-height: 30px;font-size: 15px;padding-top: 10px;">
+      <!-- <ion-col size="7" style="padding-left: 20px;line-height: 30px;font-size: 15px;padding-top: 10px;">
         <b>Olive Oil</b><br>
         45826598<br>
         Inv:225/42
+      </ion-col> -->
+     
+      <ion-col size="8" class="verticalalign" routerDirection="forward" >
+        <p class="displaytext">{{product.name}}</p><br/>
+        <p class="displaytext"><span class="barcode">{{product.barcode}}</span>      
+        </p>										
       </ion-col>
+
       <ion-col>
         <ion-button class="ion-text-center edit-button"  [routerLink]="['/edititem']">
 					<span color="light">Edit</span>
         </ion-button>
       </ion-col>
-      <!-- <ion-col size="8" class="verticalalign" routerDirection="forward" >
-        <p class="displaytext">{{productList.name}}</p><br/>
-        <p class="displaytext"><span class="barcode">{{productList.barCode}}</span>      
-        </p>										
-      </ion-col>
-
-      <ion-col size="4" style="padding-top: 40px;">
-        <ion-icon name="create-outline" style="zoom:2.0;"></ion-icon>
-      </ion-col> -->
 
     </ion-row>
   </ion-card>
