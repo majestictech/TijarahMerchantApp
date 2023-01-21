@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true" color="light">
+	<div class="div-item">
+	  <ion-row>
+		<ion-col class="ion-text-center">
+		  <h2>Vendor List</h2>
+		</ion-col>
+	  </ion-row>
+	</div><br>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-searchbar class="customer_search"  placeholder="{{ 'PURCHASEREPORT.searchbyvendorname' | translate }}"></ion-searchbar>				
+    </ion-col>
+    <ion-col size="3"></ion-col>
+    <ion-col size="3" class="ion-text-center">
+      <ion-button class="addvendor"  [routerLink]="['/addvendor']">
+        <ion-icon name="add-circle"></ion-icon> 
+        {{ 'VENDOR.addvendor' | translate }}
+      </ion-button>
+    </ion-col>	
+  </ion-row>
+
+  <ion-row class="greenback ion-margin-horizontal">
+    <ion-col size="3">{{ 'VENDOR.vendorsname' | translate }}</ion-col>
+    <ion-col size="3" class="ion-text-center">{{ 'LOGIN.contactnumber' | translate }}</ion-col>
+    <ion-col size="3" class="ion-text-center">{{ 'VENDOR.vatnumber' | translate }}</ion-col>
+    <ion-col class="ion-text-right ion-padding-horizontal">{{ 'INVENTORY.edit' | translate }}</ion-col>
+  </ion-row>
+
+  <ion-list lines="full">
+    <ion-row class="shopbycategory ion-padding-horizontal" >
+      <ion-col class="ion-padding-horizontal other" size="3">
+        <p>Vendor Name</p>
+      </ion-col>
+      <ion-col class="ion-padding-horizontal other ion-text-center" size="3">
+        <p>9874563454</p>
+      </ion-col>
+      <ion-col class="ion-padding-horizontal other ion-text-center" size="3">
+        <p>15</p>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+      <ion-col size="1" class="other">
+        <ion-button  expand="block" class="editplus">Edit
+          <img src="../assets/images/create.png" class="edit_btn" slot="end" width="20" />
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="shopbycategory ion-padding-horizontal" >
+      <ion-col class="ion-padding-horizontal other" size="3">
+        <p>Vendor Name</p>
+      </ion-col>
+      <ion-col class="ion-padding-horizontal other ion-text-center" size="3">
+        <p>9874563454</p>
+      </ion-col>
+      <ion-col class="ion-padding-horizontal other ion-text-center" size="3">
+        <p>15</p>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+      <ion-col size="1" class="other">
+        <ion-button  expand="block" class="editplus">Edit
+          <img src="../assets/images/create.png" class="edit_btn" slot="end" width="20" />
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

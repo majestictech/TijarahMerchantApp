@@ -53,22 +53,40 @@ const routes: Routes = [
   },
   {
     path: 'invoices',
-    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule)
+    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule),
+    data: {
+      preload: true,
+	  name: 'invoices'
+    }
 
-      },
-          {
+  },
+  {
 
     path: 'additem',
-    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule)
+    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule),
+    data: {
+      preload: true,
+	  name: 'additem'
+    }
   },
   {
     path: 'edititem',
-    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule)
+    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule),
+    data: {
+      preload: true,
+	  name: 'edititem'
+    }
 
-  },  {
-    path: 'vedorlist',
-    loadChildren: () => import('./vedorlist/vedorlist.module').then( m => m.VedorlistPageModule)
+  },
+  {
+    path: 'vendorlist',
+    loadChildren: () => import('./vendorlist/vendorlist.module').then( m => m.VendorlistPageModule),
+    data: {
+      preload: true,
+	  name: 'vendorlist'
+    }
   }
+
 
 
 ];

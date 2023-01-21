@@ -1,0 +1,41 @@
+
+
+.div-item {
+    background-color: #006c35;
+    color:#fff;
+    height:18vh;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    padding-top:30px;
+}
+
+.greenback{
+	background:var(--ion-color-plusprimary, #006C35);
+	border-radius:8px 8px 0 0;
+	padding: 0px 10px;
+}
+
+.greenback ion-col{
+	color:var(--ion-color-plusprimary-contrast, #ffffff);	
+}
+
+.shopbycategory{
+	border-bottom:1px solid var(--ion-color-light-shade, #d7d8da);
+}
+
+ion-searchbar {
+    font-size: 14px !important;
+    --border-radius: 10px;
+      
+}
+
+.addvendor {
+    --background:var(--ion-color-plusprimary-contrast, #ffffff);
+	--color:var(--ion-color-plusprimary, #006C35);
+	//border: 1px solid var(--ion-color-light-shade, #d7d8da);
+	--border-radius:10px;
+	height:36px;
+	--background-activated:var(--ion-color-plusprimary-contrast, #ffffff) !important;
+	text-transform:capitalize;
+    margin-top: 10px;
+}

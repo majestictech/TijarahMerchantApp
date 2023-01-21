@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EdititemPageRoutingModule } from './edititem-routing.module';
+import { VendorlistPageRoutingModule } from './vendorlist-routing.module';
 
-import { EdititemPage } from './edititem.page';
+import { VendorlistPage } from './vendorlist.page';
 import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EdititemPageRoutingModule,
+    VendorlistPageRoutingModule,
     TranslateModule
   ],
-  declarations: [EdititemPage]
+  declarations: [VendorlistPage]
 })
-export class EdititemPageModule {}
+export class VendorlistPageModule {}
