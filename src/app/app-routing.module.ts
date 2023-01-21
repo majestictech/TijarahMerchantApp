@@ -65,7 +65,11 @@ const routes: Routes = [
     path: 'edititem',
     loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule)
 
+  },  {
+    path: 'vedorlist',
+    loadChildren: () => import('./vedorlist/vedorlist.module').then( m => m.VedorlistPageModule)
   }
+
 
 ];
 @NgModule({
