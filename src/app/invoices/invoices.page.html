@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]="true"> 
   <ion-toolbar>
     
     <ion-row>
@@ -10,7 +10,7 @@
         			
       </ion-col>	
       <ion-col size="2" class="ion-text-center">
-        <ion-button mode="ios" class="addinvoice"  routerDirection="forward">
+        <ion-button mode="ios" class="addinvoice" [routerLink]="['/addinvoice']"routerDirection="forward">
           <ion-icon name="add-circle"></ion-icon> 
           Add Invoice
         </ion-button>
@@ -23,10 +23,10 @@
 <ion-content>
   <ion-row class="ion-padding-horizontal ion-padding-top md hydrated">
     <ion-col size="7" class="purchaseorder">
-      <span>Invoices</span>
+      <span>{{ 'INVOICE.invoice' | translate }}</span>
     </ion-col>
     <ion-col size="4">
-      <ion-searchbar class="customer-search" placeholder="Search by Invoice Number and Supplier Name" ></ion-searchbar>
+      <ion-searchbar class="customer-search rounded-3" placeholder="{{ 'INVOICE.searchbyinvoiceno' | translate }}"></ion-searchbar>
     </ion-col>
     <ion-col size="1"></ion-col>
   </ion-row>
@@ -36,13 +36,13 @@
         <ion-col size="7" class="verticalalign">	
           <div class="potabs">
             <div class="{{selectedTab}}_selected">
-              <p class="selected">All</p>
+              <p class="selected">{{ 'INVOICE.all' | translate }}</p>
             </div>
             <div>
-              <p>Completed</p>
+              <p>{{ 'INVOICE.completed' | translate }}</p>
             </div>
             <div>
-              <p>Pending</p>
+              <p>{{ 'INVOICE.pending' | translate }}</p>
             </div>
           </div>
         </ion-col>
@@ -53,7 +53,105 @@
 					<ion-input type="date" placeholder=""></ion-input>
 				</ion-col>
         <ion-button class="ok_btn" size="small">Ok</ion-button>
-				
+			</ion-row>
+
+      <ion-row  class="horizontalpadding">	
+				<ng-container>
+					<ion-col size="12" class="ion-no-padding ion-padding-top">	
+						<ion-row class="greenback ion-padding-horizontal">
+							<ion-col size="2" >
+								<p>{{ 'INVOICE.invoicedate' | translate }}</p>
+							</ion-col>
+							<ion-col size="2" >
+								<p>{{ 'INVOICE.invoicenumber' | translate }}</p>
+							</ion-col>
+							<ion-col size="2" >
+								<p>{{ 'INVOICE.vendorname' | translate }}</p>
+							</ion-col>
+							<ion-col size="2" >
+								<p>{{ 'INVOICE.contactnumber' | translate }}</p>
+							</ion-col>
+							<ion-col size="2">
+								<p>{{ 'INVOICE.status' | translate }}</p>
+							</ion-col>
+							<ion-col size="2"></ion-col>
+						</ion-row>
+					</ion-col>
+
+          <ion-col size="12" class="ion-no-padding">							
+						<div class="poborder">
+							<ion-row class="ion-padding-horizontal borderbottom">
+								<ion-col size="2"  >
+									<p>2023-01-19</p>
+								</ion-col>
+								<ion-col size="2" >
+									<p>215487</p>
+								</ion-col>
+								<ion-col size="2" >
+									<p>jp</p>
+								</ion-col>
+								<ion-col size="2" >
+									<p>22335544</p>
+								</ion-col>
+								<ion-col size="2">
+									<p>Complete</p>
+								</ion-col>
+                <ng-container>
+                  <ion-col size="2">
+                    <!--
+                    <ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" (click)="env.sound()"  expand="block" class="plusedit" [routerLink]="['/', 'invoicedetail', purchaseorder.id]" routerDirection="forward">
+                      <img src="../assets/images/open-outline.png" class="edit_btn" slot="end" width="20" />
+                    </ion-button>-->
+                    <ion-button [routerLink]="['/editinvoice']" routerDirection="forward" mode="ios" class="quick_finish">
+                      {{ 'INVOICE.edit' | translate }}<ion-icon name="chevron-forward-outline"></ion-icon> 
+                    </ion-button>	
+                  </ion-col>	
+                </ng-container>
+              </ion-row>
+            </div>
+          </ion-col>
+
+          <ion-col size="12" class="ion-no-padding">							
+						<div class="poborder">
+							<ion-row class="ion-padding-horizontal borderbottom">
+								<ion-col size="2"  >
+									<p>2023-01-19</p>
+								</ion-col>
+								<ion-col size="2" >
+									<p>875421</p>
+								</ion-col>
+								<ion-col size="2" >
+									<p>jp</p>
+								</ion-col>
+								<ion-col size="2" >
+									<p>22335544</p>
+								</ion-col>
+								<ion-col size="2">
+									<p>Complete</p>
+								</ion-col>
+                <ng-container>
+                  <ion-col size="2">
+                    <!--
+                    <ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" (click)="env.sound()"  expand="block" class="plusedit" [routerLink]="['/', 'invoicedetail', purchaseorder.id]" routerDirection="forward">
+                      <img src="../assets/images/open-outline.png" class="edit_btn" slot="end" width="20" />
+                    </ion-button>-->
+                    <ion-button [routerLink]="['/editinvoice']" routerDirection="forward" mode="ios" class="quick_finish">
+                      {{ 'INVOICE.edit' | translate }}<ion-icon name="chevron-forward-outline"></ion-icon> 
+                    </ion-button>	
+                  </ion-col>	
+                </ng-container>
+              </ion-row>
+            </div>
+          </ion-col>
+          
+        </ng-container>
       </ion-row>
     </ion-grid>
 </ion-content>
+<ion-footer>
+  <ion-row class="row-headingplus">
+    <ion-col size="4" class="ion-text-left"><b>Total Amount Without VAT</b><br>SAR 232,072.08</ion-col>
+    <ion-col size="4" class="ion-text-center"><b>Total Paid Tax</b><br>SAR 0.00</ion-col>
+    <ion-col size="4" class="ion-text-right"><b>Total Amount with VAT</b><br>0.00</ion-col>
+  </ion-row>
+</ion-footer>
