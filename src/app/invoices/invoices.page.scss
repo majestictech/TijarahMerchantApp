@@ -3,15 +3,23 @@
 	font-size:30px;
 }
 .po-details{
-	background:var(--ion-color-plusprimary-contrast, #ffffff);
+	background:var(--ion-color-plusprimary-contrast, #f4f8fb);
 	border-radius:8px;
-
+    
 }
-
-.customer-search{
-    border-radius: 38px !important;
-    font-size: 12px !important;
-    line-height: 25px !important;
+.greenback{
+	background:var(--ion-color-plusprimary, #006C35);
+	border-radius:8px 8px 0 0;
+    color: #ffffff;
+}
+ion-searchbar div.searchbar-input {
+    border-radius: 8px !important;
+}
+.sc-ion-searchbar-md-h {
+    border-radius: 8px !important;
+}
+.customer-search .searchbar-input-container .searchbar-input {
+    border-radius: 8px;
 }
 .customer-search .searchbar-input {
     border-radius: 8px;
@@ -40,4 +48,17 @@
 }
 .addinvoice {
     background-color: #ffffff !important;
+}
+.borderbottom p{
+	font-size:14px;
+}
+.borderbottom{
+	border-bottom:1px solid var(--ion-color-light-shade, #d7d8da);
+}
+
+.row-headingplus{
+	background:var(--ion-color-plusprimary, #006C35);
+	font-size: 14px;
+	color:var(--ion-color-plusprimary-contrast, #ffffff);
+	padding: 4px 16px;
 }
