@@ -86,6 +86,7 @@ const routes: Routes = [
       preload: true,
 	  name: 'vendorlist'
     }
+
   },
   {
     path: 'addinvoice',
@@ -102,6 +103,7 @@ const routes: Routes = [
       preload: true,
 	  name: 'editinvoice'
     }
+
   }
 
 

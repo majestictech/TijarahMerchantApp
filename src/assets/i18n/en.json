@@ -78,7 +78,10 @@
 	},
 
 	"VENDOR": {
-		"addvendor": "Add Vendor" 
+		"addvendor": "Add Vendor", 
+		"vendorlist": "Vendor List",
+		"vatnumber": "VAT Number",
+		"vandorsname": "Vandors Name"
 		
 	}
 
