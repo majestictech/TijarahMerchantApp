@@ -1,0 +1,49 @@
+
+
+<ion-content [fullscreen]="true" color="light">
+	<div class="div-item">
+	  <ion-row>
+		<ion-col class="ion-text-center">
+		  <h2> {{ 'VENDOR.vendors' | translate }}</h2>
+		</ion-col>
+	  </ion-row>
+	</div><br>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-searchbar class="customer_search"  placeholder="{{ 'VENDOR.searchbyvendorname'| translate }}"></ion-searchbar>				
+    </ion-col>
+    <ion-col size="3"></ion-col>
+    <ion-col size="3" class="ion-text-center">
+      <ion-button class="addvendor"  [routerLink]="['/addvendor']">
+        <ion-icon name="add-circle"></ion-icon> 
+        {{ 'VENDOR.addvendor' | translate }}
+      </ion-button>
+    </ion-col>	
+  </ion-row>
+
+  <ion-row class="greenback ion-margin-horizontal">
+    <ion-col size="3">{{ 'VENDOR.vendorsname' | translate }}</ion-col>
+    <ion-col size="3" class="ion-text-center">{{ 'VENDOR.paidamount' | translate }}</ion-col>
+    <ion-col size="3" class="ion-text-center">{{ 'VENDOR.dueamount' | translate }}</ion-col>
+    <ion-col class="ion-text-right">{{ 'VENDOR.totalamountwithvat' | translate }}</ion-col>
+  </ion-row>
+
+  <ion-row class="report-textplus ion-margin-horizontal">
+    <ion-col size="3">Vendor Name</ion-col>			
+    <ion-col size="3" class="ion-text-center"><span>SAR <span class="plusprimarycolor">2000</span></span></ion-col>
+    
+    <ion-col size="3" class="ion-text-center"><span>SAR <span class="plusprimarycolor">500</span></span></ion-col>
+    
+    <ion-col class="ion-text-right"><span>SAR <span class="primarycolor">2500</span></span></ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row class="row-headingplus">
+    <ion-col size="4"><b>{{ 'VENDOR.vendorscount' | translate }}</b><br>vendor count</ion-col>
+    <ion-col size="4" class="ion-text-center" ><b>{{ 'VENDOR.totalpaidtax' | translate }}</b><br>SAR 1200</ion-col>
+    <ion-col size="4" class="ion-text-right"><b>{{ 'INVOICE.totalamount' | translate }}</b><br>SAR 2500</ion-col>
+  </ion-row>
+</ion-footer>

@@ -107,7 +107,19 @@ const routes: Routes = [
       preload: true,
 	  name: 'editinvoice'
     }
+
+
+  },
+  {
+    path: 'vendors',
+    loadChildren: () => import('./vendors/vendors.module').then( m => m.VendorsPageModule),
+    data: {
+      preload: true,
+	  name: 'vendors'
+    }
+
   }
+
 
 
 ];
