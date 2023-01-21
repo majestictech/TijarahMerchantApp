@@ -18,17 +18,17 @@ export class ProductsService {
   }
   
 
-	getListProducts(): Observable<any> {
+	getProducts(): Observable<any> {
 		return this.http.get(this.env.API_URL+'/listproducts').pipe(
 			map(result => result['results'])
 			
 		);
 	}
-	getStockReason(): Observable<any> {
+	/* getStockReason(): Observable<any> {
 		return this.http.get(this.env.API_URL+'/listproducts').pipe(
 			map(result => result['results'])
 			
 		);
-	}
+	} */
 
 }

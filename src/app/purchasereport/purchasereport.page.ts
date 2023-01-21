@@ -97,13 +97,13 @@ export class PurchasereportPage implements OnInit {
 	this.vendororderlist.subscribe(res => {
 		console.log(res);
     this.env.alertCheck(JSON.stringify(res));
-		let data = res['purchasedata']['data'];
-
+		  let data = res['purchasedata']['data'];
 			let vatAmount = res['totalVat'];
 			let totalAmount = res['totalSumAmount'];
 
       vatAmount.toString();
       totalAmount.toString();
+      data.toString();
 
 	// Generate the chart
         HighCharts.chart('salesChart', {
@@ -114,7 +114,7 @@ export class PurchasereportPage implements OnInit {
         text: ''
       },
       xAxis: {
-        categories: ['Vendor 1 ', 'Vendor 2', 'Vendor 3']
+        categories:data
       },
       yAxis: {
         title: {
