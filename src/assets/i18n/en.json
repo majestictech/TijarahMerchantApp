@@ -81,8 +81,13 @@
 		"addvendor": "Add Vendor", 
 		"vendorlist": "Vendor List",
 		"vatnumber": "VAT Number",
-		"vandorsname": "Vandors Name"
+		"vandorsname": "Vandors Name",
+		"searchbyvendorname": "Search By Vandor Name"
 		
+	},
+
+	"ADDINVOICE": {
+		"invoicenumber": "Invoice Number"
 	}
 
 }
