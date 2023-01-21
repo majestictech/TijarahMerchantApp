@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>invoices</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding-horizontal ion-padding-top md hydrated">
+    <ion-col size="7" class="purchaseorder">
+      <span>Invoices</span>
+    </ion-col>
+    <ion-col size="4">
+      <ion-searchbar class="customer-search" placeholder="Search by Invoice Number and Supplier Name" ></ion-searchbar>
+    </ion-col>
+    <ion-col size="1"></ion-col>
+  </ion-row>
+  
+    <ion-grid class="ion-margin-horizontal po-details">
+      <ion-row class="customdate">		
+        <ion-col size="7" class="verticalalign">	
+          <div class="potabs">
+            <div class="{{selectedTab}}_selected">
+              <p class="selected">All</p>
+            </div>
+            <div>
+              <p>Completed</p>
+            </div>
+            <div>
+              <p>Pending</p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="2">
+					<ion-input type="date" name="startDate" placeholder=""></ion-input>
+				</ion-col>
+				<ion-col size="2">
+					<ion-input type="date" placeholder=""></ion-input>
+				</ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

@@ -45,7 +45,15 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },  {
+    path: 'purchase',
+    loadChildren: () => import('./purchase/purchase.module').then( m => m.PurchasePageModule)
+  },
+  {
+    path: 'invoices',
+    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule)
   }
+
 ];
 @NgModule({
   imports: [
