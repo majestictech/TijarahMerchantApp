@@ -4,7 +4,7 @@
     <ion-row>
       <ion-col class="ion-margin-5" size="12">
         <ion-text class="ion-text-center">
-          <ion-title>Edit Product</ion-title>
+          <ion-title>{{ 'EDITPRODUCT.editproduct' | translate }}</ion-title>
         </ion-text>
       </ion-col>
     </ion-row>
@@ -14,19 +14,19 @@
 <ion-content>
   <form method="post">
     <ion-item>
-      <ion-label position="stacked">Product Name in Arabic<span class="asterisk">*</span></ion-label>
+      <ion-label position="stacked">{{ 'ADDITEM.productnamear' | translate }}<span class="asterisk">*</span></ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Product Name<span class="asterisk">*</span></ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.productname' | translate }}<span class="asterisk">*</span></ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Barcode</ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.barcode' | translate }}</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Category<span class="asterisk">*</span></ion-label> 
+      <ion-label position="stacked">{{ 'EDITPRODUCT.category' | translate }}<span class="asterisk">*</span></ion-label> 
       <ion-select name="" value="" >
         <ion-select-option  value="1">Oils & Ghee</ion-select-option>
         <ion-select-option  value="2">House Cleaners</ion-select-option>
@@ -34,7 +34,7 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Sub Category<span class="asterisk">*</span></ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.subcategory' | translate }}<span class="asterisk">*</span></ion-label>
       <ion-select name="" value="" >
         <ion-select-option  value="4"> Miscellaneous 1</ion-select-option>
         <ion-select-option  value="5">Miscellaneous 2</ion-select-option>
@@ -42,41 +42,41 @@
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Selling Price</ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.sellingprice' | translate }}</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Code price with VAT</ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.codepricewithvat' | translate }}</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Near Expiry Notification</ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.nearexpirynotification' | translate }}</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">VAT<span class="asterisk">*</span></ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.vat' | translate }}<span class="asterisk">*</span></ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Print Barcode</ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.printbarcode' | translate }}</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">MBQ</ion-label>
+      <ion-label position="stacked">{{ 'EDITPRODUCT.mbq' | translate }}</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Available<span class="asterisk">*</span></ion-label> 
+      <ion-label position="stacked">{{ 'EDITPRODUCT.available' | translate }}<span class="asterisk">*</span></ion-label> 
       <ion-select name="" value="" >
-        <ion-select-option  value="1">Available</ion-select-option>
-        <ion-select-option  value="2">Not Available</ion-select-option>
+        <ion-select-option  value="1">{{ 'EDITPRODUCT.available' | translate }}</ion-select-option>
+        <ion-select-option  value="2">{{ 'EDITPRODUCT.notavailable' | translate }}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Loose Item<span class="asterisk">*</span></ion-label> 
+      <ion-label position="stacked">{{ 'EDITPRODUCT.looseitem' | translate }}<span class="asterisk">*</span></ion-label> 
       <ion-select name="" value="" >
-        <ion-select-option  value="1">Yes</ion-select-option>
-        <ion-select-option  value="2">No</ion-select-option>
+        <ion-select-option  value="1">{{ 'EDITPRODUCT.yes' | translate }}</ion-select-option>
+        <ion-select-option  value="2">{{ 'EDITPRODUCT.no' | translate }}</ion-select-option>
       </ion-select>
     </ion-item>
     
@@ -87,10 +87,10 @@
 <ion-footer>
   <ion-row class="stick">
     <ion-col size="6">
-      <ion-button type="" expand="block" class="cancel">Cancel</ion-button>
+      <ion-button type="" expand="block" class="cancel">{{ 'EDITPRODUCT.cancel' | translate }}</ion-button>
     </ion-col>
     <ion-col size="6">
-      <ion-button type="" expand="block" class="apply">Edit Product</ion-button>
+      <ion-button type="" expand="block" class="apply">{{ 'EDITPRODUCT.editproduct' | translate }}</ion-button>
     </ion-col>
   </ion-row>
 </ion-footer>

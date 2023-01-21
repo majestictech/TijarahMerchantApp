@@ -59,37 +59,35 @@ const routes: Routes = [
 	  name: 'invoices'
     }
 
-      },
-          {
+
+  },
+  {
 
     path: 'additem',
-    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule)
+    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule),
+    data: {
+      preload: true,
+	  name: 'additem'
+    }
   },
   {
     path: 'edititem',
-    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule)
+    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule),
+    data: {
+      preload: true,
+	  name: 'edititem'
+    }
 
   },
   {
-    path: 'vedorlist',
-    loadChildren: () => import('./vedorlist/vedorlist.module').then( m => m.VedorlistPageModule)
-  },
-  {
-    path: 'addinvoice',
-    loadChildren: () => import('./addinvoice/addinvoice.module').then( m => m.AddinvoicePageModule),
+    path: 'vendorlist',
+    loadChildren: () => import('./vendorlist/vendorlist.module').then( m => m.VendorlistPageModule),
     data: {
       preload: true,
-	  name: 'addinvoice'
-    }
-  },
-  {
-    path: 'editinvoice',
-    loadChildren: () => import('./editinvoice/editinvoice.module').then( m => m.EditinvoicePageModule),
-    data: {
-      preload: true,
-	  name: 'editinvoice'
+	  name: 'vendorlist'
     }
   }
+
 
 
 ];
