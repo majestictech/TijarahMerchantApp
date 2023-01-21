@@ -107,7 +107,6 @@ const routes: Routes = [
       preload: true,
 	  name: 'editinvoice'
     }
-
   }
 
 

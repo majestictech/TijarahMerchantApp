@@ -21,53 +21,99 @@
       
       <ion-row>
         <ion-col size="4">
-      
-        <ion-item lines="none">
-          <ion-label position="stacked">selectvendor<span class="asterisk">*</span></ion-label>
-          <ion-searchbar class="select_vendor" searchIcon="undefined" type="text" debounce="500" placeholder="selectvendor"></ion-searchbar>
-        </ion-item>
-        <ion-item lines="none">
-          assignedVendor
-          <img src="../assets/images/close-circle.png" width="22" slot="start" />
-          <img src="../assets/images/person-add-outline.png" width="22" slot="end" />
-        </ion-item>
-        <ion-list>
-          <ng-container>
-            <ion-item>
-              <ion-row class="searchrow">
-                <ion-col size="8" class="alignment">
-                  vendorName
-                </ion-col>
-                <ion-col size="4">
-                  <ion-button class="btnadd" expand="block">assign</ion-button>
-                </ion-col>
-              </ion-row>
-            </ion-item>
-          </ng-container>
-          <ng-container>
-            <ion-list class="ion-text-center">novendor<br>
-            <ion-button size="small" color="medium" routerDirection="forward" class="btnadd"><img src="../assets/images/bag-add-outline.png" width="22" slot="start" />addvendor</ion-button>
-            
-            </ion-list>
-          </ng-container>
-        </ion-list>
+          <ion-item lines="none">
+            <!-- <ion-label style="color:#006C35;" position="stacked">selectvendor<span class="asterisk">*</span></ion-label> -->
+            <ion-searchbar style="border-radius: 20px;" class="select_vendor" searchIcon="undefined" type="text" debounce="500" placeholder="Select Vendor"></ion-searchbar>
+          </ion-item>
         </ion-col>
       
-      
         <ion-col size="4">
-        <ion-item>
-          <ion-label position="floating">invoicenumber<span class="asterisk">*</span></ion-label>
-          <ion-input type="text" required name="invoiceNumber"></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-label style="color: #006C35;" position="floating">Invoice Number<span class="asterisk">*</span></ion-label>
+            <ion-input type="text" required name="invoiceNumber"></ion-input>
+          </ion-item>
         </ion-col>
+
         <ion-col size="4">
         <ion-item>
-          <ion-label position="floating">invoicedate <span class="asterisk">*</span></ion-label>
+          <ion-label style="color:#006C35;" position="floating">Invoice Date <span class="asterisk">*</span></ion-label>
           <ion-input type="date" required placeholder="startdate" displayFormat="DDDD MMM D, YYYY" min="2005"></ion-input>
         </ion-item>
         </ion-col>
       </ion-row>
-      </form>
+      <ion-item lines="none">
+        <ion-searchbar searchIcon="" class="product_search" type="text" debounce="500" name="searchText" placeholder="Product" ></ion-searchbar>
+      </ion-item>
+      
+      <div class="divmargin">
+        <ion-row class="ion-padding ion-margin greenback">
+          <!--<ion-col size="2">
+            <span>S.No</span>
+          </ion-col>-->
+          <ion-col size="3" class="">
+            <span>Item Name *</span>
+          </ion-col>
+          <ion-col size="2" class="ion-text-center">
+            <span>Cost Price *</span>
+          </ion-col>
+          <ion-col size="2" class="ion-text-center">
+            <span>Quantity *</span>
+          </ion-col>
+          <ion-col size="2" class="ion-text-center">
+            <span>Expiry Date *</span>
+          </ion-col>
+          <ion-col size="3" class="ion-text-right">
+            <span>Total Amount</span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
   </div>
-
 </ion-content>
+<ion-footer class="bottom-footer">
+  <ion-list lines="none">
+    <ion-row class="ion-padding-horizontal">
+      <ion-col size="6">
+        <p>Amount</p>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+      </ion-col>
+    </ion-row>
+    <!--
+    <ion-row class="ion-padding-horizontal">
+      <ion-col size="6">
+        <p>{{ 'BILL.discount' | translate }}</p>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        <p class="ion-text-right">SAR <span class="primarycolor">{{cartTotal - cartVat| number: '1.2-2'}}</span></p>
+      </ion-col>
+    </ion-row>
+    -->
+    <ion-row class="ion-padding-horizontal borderbottom">
+      <ion-col size="6">
+        <p>Vat Amount</p>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding-horizontal">
+      <ion-col size="6">
+        <p>Total Amount with VAT</p>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button expand="block" class="apply" color="success" disabled>Create Invoice</ion-button>
+      
+    </ion-col>
+    <ion-col size="6">
+      <ion-button expand="block" class="apply" disabled>Save</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
