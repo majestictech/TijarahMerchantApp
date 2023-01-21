@@ -55,6 +55,9 @@ const routes: Routes = [
     path: 'invoices',
     loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule)
 
+      },
+          {
+
     path: 'additem',
     loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule)
   },
