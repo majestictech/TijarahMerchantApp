@@ -8,8 +8,8 @@
 		"signin": "Sign In",
 		"password": "Password",
 		"login": "Login",
-		"loggingin": "Logging In...",
-		"contactnumber": "Contact Number"
+		"loggingin": "Logging In..."
+		
 	},
 	"SETTING": {
 		"selectlanguage": "Select Language",
@@ -22,7 +22,64 @@
 		"productname": "Product Name",
 		"barcode": "Barcode",
 		"category": "Category",
-		"subcategory": "Sub-Category"
+		"subcategory": "Sub-Category",
+		"sellingprice": "selling Price",
+		"codepricewithvat": "Code Price With Vat",
+		"nearexpirynotification": "Near Expiry Notification",
+		"vat": "VAT",
+		"printbarcode": "Print Barcode",
+		"mbq": "MBQ",
+		"available": "Available",
+		"notavailable": "Not Available",
+		"looseitem": "Loose Item",
+		"yes": "Yes",
+		"no": "No",
+		"cancel": "Cancel",
+		"addproduct": "Add Product"
+		
+	},
+
+	"INVOICE": {
+		"addinvoices": "Add Invoice",
+		"editinvoices": "Edit Invoices",
+		"quickinvoice": "Quick Invoice",
+		"createinvoice": "Create Invoice",
+		"compeninvoices": "Completed/Pending Invoices",
+		"status": "Status",
+		"completed": "Completed",
+		"selectvendor": "Select Vendor",
+		"pending": "Pending",
+		"invoicenumber": "Invoice Number",
+		"invoicedate": "Invoice Date",
+		"product": "Product",
+		"searchbyinvoiceno": "Search by Invoice Number and Supplier Name",
+		"totalamt": "Total Amount",
+		"totalamount": "Total Amount with VAT",
+		"vatamount": "VAT Amount",
+		"selecttheitems": "Select the Items",
+		"productsselected": "Products Selected",
+		"next": "Next",
+		"proceedpayment": "Proceed to Payment",
+		"save": "Save",
+		"add": "Add",
+		"novendor": "No Vendor",
+		"noproduct": "No Product",
+		"all": "All",
+		"view": "View",
+		"edit": "Edit",
+		"update": "Update",
+		"totaltaxablevalue":"Total Amount Without VAT",
+		"instock":"In Stock"
+	},
+
+	"ADDITEM": {
+		"addproduct": "Add Product", 
+		"productnamear": "Product Name in Arabic" 
+	},
+
+	"VENDOR": {
+		"addvendor": "Add Vendor" 
+		
 	}
 
 }

@@ -53,7 +53,11 @@ const routes: Routes = [
   },
   {
     path: 'invoices',
-    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule)
+    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule),
+    data: {
+      preload: true,
+	  name: 'invoices'
+    }
 
       },
           {
@@ -65,9 +69,26 @@ const routes: Routes = [
     path: 'edititem',
     loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule)
 
-  },  {
+  },
+  {
     path: 'vedorlist',
     loadChildren: () => import('./vedorlist/vedorlist.module').then( m => m.VedorlistPageModule)
+  },
+  {
+    path: 'addinvoice',
+    loadChildren: () => import('./addinvoice/addinvoice.module').then( m => m.AddinvoicePageModule),
+    data: {
+      preload: true,
+	  name: 'addinvoice'
+    }
+  },
+  {
+    path: 'editinvoice',
+    loadChildren: () => import('./editinvoice/editinvoice.module').then( m => m.EditinvoicePageModule),
+    data: {
+      preload: true,
+	  name: 'editinvoice'
+    }
   }
 
 
