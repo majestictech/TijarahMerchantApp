@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddinvoicePageRoutingModule } from './addinvoice-routing.module';
 
 import { AddinvoicePage } from './addinvoice.page';
-
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   imports: [
     CommonModule,

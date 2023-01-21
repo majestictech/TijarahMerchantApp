@@ -19,12 +19,12 @@ export class InventoryService {
 constructor(private router: Router,private platform: Platform,private http: HttpClient, private env: EnvService, private loadingController: LoadingController) 
   { }
   
-getProduct(): Observable<any> {
+/* getProduct(): Observable<any> {
 	return this.http.get(this.env.API_URL+'/liststockreason').pipe(
 		map(result => result['results'])
 		
 	);
-}
+} */
 	
 inventoryGraphData(): Observable<any> {
 	return this.http.get(this.env.API_URL+'/inventorygraph/505').pipe(
