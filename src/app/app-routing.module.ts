@@ -53,19 +53,63 @@ const routes: Routes = [
   },
   {
     path: 'invoices',
-    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule)
+    loadChildren: () => import('./invoices/invoices.module').then( m => m.InvoicesPageModule),
+    data: {
+      preload: true,
+	  name: 'invoices'
+    }
 
-      },
-          {
+
+  },
+  {
 
     path: 'additem',
-    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule)
+    loadChildren: () => import('./additem/additem.module').then( m => m.AdditemPageModule),
+    data: {
+      preload: true,
+	  name: 'additem'
+    }
   },
   {
     path: 'edititem',
-    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule)
+    loadChildren: () => import('./edititem/edititem.module').then( m => m.EdititemPageModule),
+    data: {
+      preload: true,
+	  name: 'edititem'
+    }
+
+  },
+  {
+    path: 'vendorlist',
+    loadChildren: () => import('./vendorlist/vendorlist.module').then( m => m.VendorlistPageModule),
+    data: {
+      preload: true,
+	  name: 'vendorlist'
+    }
+
+
+    
+
+
+  },
+  {
+    path: 'addinvoice',
+    loadChildren: () => import('./addinvoice/addinvoice.module').then( m => m.AddinvoicePageModule),
+    data: {
+      preload: true,
+	  name: 'addinvoice'
+    }
+  },
+  {
+    path: 'editinvoice',
+    loadChildren: () => import('./editinvoice/editinvoice.module').then( m => m.EditinvoicePageModule),
+    data: {
+      preload: true,
+	  name: 'editinvoice'
+    }
 
   }
+
 
 ];
 @NgModule({
