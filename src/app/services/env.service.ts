@@ -17,7 +17,8 @@ export class EnvService {
   STORE_NAME = null;
   USER_ROLE = null;
   NETWORK_STATUS = 'Online';
-  API_URL = 'https://majestictechnosoft.com/retailb2b/api';
+  //API_URL = 'https://majestictechnosoft.com/retailb2b/api';
+  API_URL = 'http://192.168.1.22/retailb2b/api';
 
   APP_DEBUG = true;
 

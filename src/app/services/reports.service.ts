@@ -14,13 +14,13 @@ export class ReportsService {
   
   
   mediaReport(start,end): Observable<any> {
-	return this.http.get(this.env.API_URL+'/mediareport/503'+'?start='+start+'&end='+end).pipe(
+	return this.http.get(this.env.API_URL+'/mediareport/505'+'?start='+start+'&end='+end).pipe(
 	  map(results => results['results'])
 	);
   }
   
   orderVendorList(type,page,start,end) {
-    return this.http.get(this.env.API_URL+'/ordervendors/503'+'?type='+type+'&start='+start+'&end='+end+'&page='+page).pipe(
+    return this.http.get(this.env.API_URL+'/ordervendors/505'+'?type='+type+'&start='+start+'&end='+end+'&page='+page).pipe(
 	  map(results => results['results'])
 	);
 	
