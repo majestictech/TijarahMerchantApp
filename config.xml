@@ -3,7 +3,9 @@
     <name>Tijarah Merchant</name>
     <description>Merchant Application</description>
     <author email="abhishek@majestictech.co.in" href="https://www.majestictech.co.in/">Majestic Technosoft Pvt. Ltd.</author>
+
     <content original-src="index.html" src="http://localhost:8100" />
+
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
