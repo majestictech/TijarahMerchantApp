@@ -28,6 +28,7 @@
     "@ionic/cordova-builders": "^6.1.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
+    "broser": "2.1.0",
     "cordova-browser": "6.0.0",
     "highcharts": "^10.1.0",
     "ionic-native": "^2.9.0",

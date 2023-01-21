@@ -1,0 +1,35 @@
+.purchaseorder span{
+	color:var(--ion-color-plusprimary, #006C35);
+	font-size:30px;
+}
+.po-details{
+	background:var(--ion-color-plusprimary-contrast, #ffffff);
+	border-radius:8px;
+
+}
+
+.customer-search{
+    border-radius: 38px !important;
+    font-size: 12px !important;
+    line-height: 25px !important;
+}
+.customer-search .searchbar-input {
+    border-radius: 8px;
+}
+.potabs
+{
+	display:flex !important;	
+}
+.potabs p {
+	padding: 8px 30px;
+	background:var( --ion-color-light-shade, #d7d8da);
+	margin-left: 0.3%;
+	border-radius: 8px;
+    font-size: 14px;
+	margin:0 2px;
+}
+
+.potabs .selected {
+    background-color: #006C35 !important;
+    color: #ffffff;
+}
