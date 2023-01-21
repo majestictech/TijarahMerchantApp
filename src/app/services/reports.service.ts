@@ -26,7 +26,11 @@ export class ReportsService {
 	
   }
   
- 
+  merchantPurchaseReport(): Observable<any> {
+    return this.http.get(this.env.API_URL+'/merchantpurchasereport/505').pipe(
+      map(results => results['results'])
+    );
+    }
  
 
 }
