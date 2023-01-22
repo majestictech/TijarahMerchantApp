@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../services/products.service';
+import { Observable } from 'rxjs';
+import { EnvService } from '../services/env.service';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -7,7 +9,8 @@ import { ProductsService } from '../services/products.service';
 })
 export class Tab3Page {
   productsList: any = [];
-  constructor(public productsService: ProductsService,) {
+  productData:  Observable<any>;
+  constructor(public productsService: ProductsService,public env: EnvService,) {
 	console.log('Constructor of Tab3 Called');
  }
 
@@ -17,8 +20,10 @@ export class Tab3Page {
     /* this.productsService.getProduct().subscribe(res => {
 			this.stockReasons  = res;
 		}); */
-    this.productsService.getListProducts().subscribe(res => {
+     this.productsService.getProducts().subscribe(res => {
 			this.productsList  = res;
+      this.env.alertCheck(JSON.stringify(res));
+      this.env.alertCheck("123");
 		});
    console.log("thisproductsList" );
    console.log(JSON.stringify(this.productsList) );
