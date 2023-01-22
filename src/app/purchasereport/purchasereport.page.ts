@@ -92,7 +92,19 @@ export class PurchasereportPage implements OnInit {
 
 
 	ionViewDidEnter() {
-    
+    this.vendororderlist = this.reportsService.orderVendorList(this.reportType,this.currentPage,this.startDate,this.endDate);
+	//this.vendororderlist.subscribe(res => this.bill_res = res['purchasedata']['data']);
+	this.vendororderlist.subscribe(res => {
+		console.log(res);
+    this.env.alertCheck(JSON.stringify(res));
+		let data = res['purchasedata']['data'];
+
+			let vatAmount = res['totalVat'];
+			let totalAmount = res['totalSumAmount'];
+
+      vatAmount.toString();
+      totalAmount.toString();
+
 	// Generate the chart
         HighCharts.chart('salesChart', {
           chart: {
@@ -113,15 +125,16 @@ export class PurchasereportPage implements OnInit {
         {
           name: 'Vat Amount',
           type: undefined,
-          data: [1, 3, 4],
+          data: vatAmount,
 		  color: 'black'
         },
         {
           name: 'Total Amount',
           type: undefined,
-          data: [5, 7, 8],
+          data: totalAmount,
 		  color: '#006C35'
         }]
         });	
+      })   
  }
 }

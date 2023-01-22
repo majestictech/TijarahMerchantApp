@@ -11,7 +11,7 @@
     </ion-row>
   </div>
   <ion-card class="card-item"><b>PURCHASE REPORT</b></ion-card>
- <!--  <ion-row style="color:#006c35" style=" margin-left: 20px;">
+  <ion-row style="color:#006c35" style=" margin-left: 20px;">
     <span style="padding:8px">
       <div style="background-color: white;border-radius: 10px;padding: 6px;">MO<br><br>12</div>
     </span>
@@ -33,12 +33,12 @@
     <span style="padding:8px">
       <div style="background-color: white;border-radius: 10px;padding: 6px;">SU<br><br>18</div>
     </span>
-  </ion-row> -->
-  <ion-row class="ion-padding-horizontal ion-padding-top customdate">
+  </ion-row>
+  <!-- <ion-row class="ion-padding-horizontal ion-padding-top customdate">
     <ion-col><ion-input type="date" required ngModel name="startDate" (ionChange)="processDate($event,'start')" value="{{startDate}}" placeholder="From Date"></ion-input></ion-col>
     <ion-col><ion-input type="date" required ngModel name="endDate" (ionChange)="processDate($event,'end')"  value="{{endDate}}" placeholder="To Date"></ion-input></ion-col>
     <ion-button size="small" (click)="selectType()" class="okbtnplus">ok</ion-button>
-  </ion-row>
+  </ion-row> -->
 
   
   <ion-chip class="chip-item">
@@ -47,7 +47,7 @@
  	<ion-row>
 			<div id="salesChart" style="width: 100vw; margin: 10px auto">Loading Graph...</div>
 		</ion-row>
-	<ion-grid class="ion-text-center " style="border: 1px solid;border-radius: 15px;">  
+<ion-grid class="ion-text-center " style="border: 1px solid;border-radius: 15px;">  
 		<ion-row class="header-row ">
 			<ion-col>
 				<ion-text> Vendor Name</ion-text>
@@ -66,5 +66,5 @@
 			<ion-col style="border-right: 1px solid">{{vendors.vatAmount}}</ion-col>
 			<ion-col>{{vendors.totalAmount}}</ion-col>	
 		</ion-row>
-	</ion-grid>
+	</ion-grid> 
 </ion-content>

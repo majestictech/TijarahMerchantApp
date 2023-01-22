@@ -32,13 +32,13 @@ export class CashierreportPage implements OnInit {
       },
       series: [
         {
-          name: 'Vat Amount',
+          name: 'Total Invoices',
           type: undefined,
           data: [1, 3, 4],
 		color: '#000'
         },
         {
-          name: 'Total Amount',
+          name: 'Total Sale',
           type: undefined,
           data: [5, 7, 8],
 		    color: '#006C35'
