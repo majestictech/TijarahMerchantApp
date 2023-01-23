@@ -10,15 +10,15 @@
     <ion-col size="8">
       <ion-searchbar placeholder="Search Items"></ion-searchbar>
     </ion-col>
-    <ion-col size="4">
-        <ion-button class="ion-text-center add-button"  [routerLink]="['/additem']">
+    <ion-col size="2"></ion-col>
+    <ion-col size="2">
+      <ion-button class="ion-text-center add-button"  [routerLink]="['/additem']">
         <ion-icon name="add-circle"></ion-icon>
-        <span color="light">Add Product</span>
       </ion-button>
     </ion-col>
   </ion-row>
-    <ion-row class="greenback">
-      <!-- <ion-col size="3" style="border-right:solid 1px;border-color: #cdcdcd;">
+   <!--  <ion-row class="greenback">
+      <ion-col size="3" style="border-right:solid 1px;border-color: #cdcdcd;">
         <img src="../assets/images/personalcare.jpg" style="padding-top: 30px;">
       </ion-col>
       <ion-col size="7" style="padding-left: 14px;line-height: 32px;font-size: 15px;padding-top: 10px;">
@@ -28,7 +28,7 @@
       </ion-col>
       <ion-col size="2" style="padding-top: 40px;">
         <ion-icon name="create-outline" style="zoom:2.0;"></ion-icon>
-      </ion-col> -->
+      </ion-col> 
 
       <ion-col size="8">
         <p>Product Name <span class="leftborder">&nbsp;Barcode</span></p>
@@ -38,20 +38,15 @@
       </ion-col>
 
 
-    </ion-row>
+    </ion-row> -->
 
-
+<!-- 
   <ion-card class="card-item" *ngFor="let product of productsList" >
     <ion-row >
       <ion-col size="3" style="border-right:solid 1px;border-color: #cdcdcd;">
         <img src="../assets/images/oliveoil.jpg" style="padding-top: 20px;">
       </ion-col>
-      <!-- <ion-col size="7" style="padding-left: 20px;line-height: 30px;font-size: 15px;padding-top: 10px;">
-        <b>Olive Oil</b><br>
-        45826598<br>
-        Inv:225/42
-      </ion-col> -->
-     
+
       <ion-col size="8" class="verticalalign" routerDirection="forward" >
         <p class="displaytext">{{product.name}}</p><br/>
         <p class="displaytext"><span class="barcode">{{product.barcode}}</span>      
@@ -65,8 +60,27 @@
       </ion-col>
 
     </ion-row>
-  </ion-card>
+  </ion-card> -->
 
+<ion-card class="products-list">
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let product of productsList">
+        <ion-thumbnail slot="start">
+          <img src="../assets/images/oliveoil.jpg" />
+        </ion-thumbnail>
+        <ion-label > 
+          <b class="displaytext">{{product.name}}</b><br/>
+          <p class="displaytext"><span class="barcode">{{product.barcode}}</span>      
+          </p>		
+        </ion-label>
+        <ion-button class="ion-text-center edit-button"  [routerLink]="['/edititem']">
+					<span color="Dark"><ion-icon name="create-outline"></ion-icon></span>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
   <!-- <ion-card class="card-item">
     <ion-row>
       <ion-col size="3" style="border-right:solid 1px;border-color: #cdcdcd;">
