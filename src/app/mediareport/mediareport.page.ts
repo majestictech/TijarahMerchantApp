@@ -28,7 +28,7 @@ loadData() {
 	this.reportsdata = this.reportsService.mediaReport(this.startDate,this.endDate);
 
 this.reportsdata.subscribe(res => {
-	alert(JSON.stringify(res));
+	//alert(JSON.stringify(res));
 	this.cashAmount = res['cashAmount'];
 	this.cardAmount = res['cardAmount'];
 	this.otherAmount = res['otherAmount'];	
@@ -40,8 +40,8 @@ this.reportsdata.subscribe(res => {
 
 ionViewWillEnter() {
 	//this.loadData();
-	alert(123);	
-	alert(this.otherAmount);	
+	//alert(123);	
+	//alert(this.otherAmount);	
   }
 
 

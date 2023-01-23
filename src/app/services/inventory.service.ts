@@ -27,7 +27,7 @@ constructor(private router: Router,private platform: Platform,private http: Http
 } */
 	
 inventoryGraphData(): Observable<any> {
-	return this.http.get(this.env.API_URL+'/inventorygraph/505').pipe(
+	return this.http.get(this.env.API_URL+'/inventorygraph/'+this.env.APP_STORE_ID).pipe(
 	  map(results => results['graphdata'])
 	);
   }	
