@@ -4,5 +4,42 @@
 }
 .searchbar-input.sc-ion-searchbar-md {
     border-radius: none !important;
-    background-color: #000 !important;
+    background-color: #d7d8da !important;
+}
+ion-searchbar input {
+    background-color: #d7d8da;
+}
+
+.product_search.searchbar-input {
+    background-color: #d7d8da;
+}
+
+.greenback{
+	background:var(--ion-color-plusprimary, #006C35);
+	border-radius:8px;
+	padding: 10px 16px !important;
+}
+
+.greenback span{
+	color:var(--ion-color-plusprimary-contrast, #ffffff);
+	
+}
+
+.bottom-footer p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.plusprimarycolor{
+	color:var(--ion-color-plusprimary, #006C35);
+	font-size:14px !important;
+}
+
+.apply
+{
+	--background: var(--ion-color-secondary, #003a02);
+    color: #ffffff;
+	height:40px;
+	margin-top:0px;
+	text-transform:capitalize;
 }

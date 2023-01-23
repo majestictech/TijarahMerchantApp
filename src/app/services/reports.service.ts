@@ -14,20 +14,26 @@ export class ReportsService {
   
   
   mediaReport(start,end): Observable<any> {
+
 	return this.http.get(this.env.API_URL+'/mediareport/'+this.env.APP_STORE_ID+'?start='+start+'&end='+end).pipe(
+
 	  map(results => results['results'])
 	);
   }
   
   orderVendorList(type,page,start,end) {
+
     return this.http.get(this.env.API_URL+'/ordervendors/'+this.env.APP_STORE_ID+'?type='+type+'&start='+start+'&end='+end+'&page='+page).pipe(
+
 	  map(results => results['results'])
 	);
 
   }
   
   merchantPurchaseReport(): Observable<any> {
+
     return this.http.get(this.env.API_URL+'/merchantpurchasereport/'+this.env.APP_STORE_ID).pipe(
+
       map(results => results['results'])
     );
     }
