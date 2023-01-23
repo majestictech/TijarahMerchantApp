@@ -1,5 +1,4 @@
 
-
 .div-item {
     background-color: #006c35;
     color:#fff;
@@ -39,4 +38,15 @@ ion-searchbar {
 	--background-activated:var(--ion-color-plusprimary-contrast, #ffffff) !important;
 	text-transform:capitalize;
     margin-top: 10px;
+}
+
+.row-headingplus {
+    background:var(--ion-color-plusprimary, #006C35);
+	font-size: 14px;
+	color:var(--ion-color-plusprimary-contrast, #ffffff);
+	padding: 4px 16px;
+}
+
+.report-textplus {
+    border-bottom: 1px solid var(--ion-color-light-shade, #d7d8da);
 }
