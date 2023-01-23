@@ -7,7 +7,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class EnvService {
   APP_LANG = 'en';
-  APP_STORE_ID : any = null;
+  APP_STORE_ID : any = 505;
   APP_SETUP = false;
   APP_USER_ID = null;
   //APP_USER_ID = '87';

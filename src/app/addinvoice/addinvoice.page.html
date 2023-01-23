@@ -20,33 +20,32 @@
     <form method="post">
       
       <ion-row>
-        <ion-col size="4">
-      
-        <ion-item lines="none">
+        <ion-col size="4">     
+        <ion-item lines="none" *ngIf="assignedVendor == 'none'">
           <ion-label position="stacked">selectvendor<span class="asterisk">*</span></ion-label>
-          <ion-searchbar class="select_vendor" searchIcon="undefined" type="text" debounce="500" placeholder="selectvendor"></ion-searchbar>
+          <ion-searchbar class="select_vendor" searchIcon="undefined" type="text" debounce="500" placeholder="selectvendor" (ionChange)="getVendors($event)" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-searchbar>
         </ion-item>
-        <ion-item lines="none">
+        <ion-item lines="none" *ngIf="assignedVendor != 'none'">
           assignedVendor
           <img src="../assets/images/close-circle.png" width="22" slot="start" />
           <img src="../assets/images/person-add-outline.png" width="22" slot="end" />
         </ion-item>
-        <ion-list>
-          <ng-container>
-            <ion-item>
+        <ion-list *ngIf="isVendorAvailable">
+          <ng-container *ngIf="vendors.length!=0">
+            <ion-item *ngFor="let vendor of vendors">
               <ion-row class="searchrow">
                 <ion-col size="8" class="alignment">
-                  vendorName
+                  {{vendor.vendorName}}
                 </ion-col>
                 <ion-col size="4">
-                  <ion-button class="btnadd" expand="block">assign</ion-button>
+                  <ion-button class="btnadd" expand="block" (click)="addVendor(vendor)">assign</ion-button>
                 </ion-col>
               </ion-row>
             </ion-item>
           </ng-container>
-          <ng-container>
+          <ng-container *ngIf="vendors.length==0">
             <ion-list class="ion-text-center">novendor<br>
-            <ion-button size="small" color="medium" routerDirection="forward" class="btnadd"><img src="../assets/images/bag-add-outline.png" width="22" slot="start" />addvendor</ion-button>
+            <ion-button size="small" color="medium" [routerLink]="['/addvendor']" routerDirection="forward" class="btnadd"><img src="../assets/images/bag-add-outline.png" width="22" slot="start" />addvendor</ion-button>
             
             </ion-list>
           </ng-container>
@@ -57,13 +56,13 @@
         <ion-col size="4">
         <ion-item>
           <ion-label position="floating">invoicenumber<span class="asterisk">*</span></ion-label>
-          <ion-input type="text" required name="invoiceNumber"></ion-input>
+          <ion-input type="text" required name="invoiceNumber" [(ngModel)]="invoiceNumber" (ionChange)="checkRequired($event,'invoiceNumber');" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-input>
         </ion-item>
         </ion-col>
         <ion-col size="4">
         <ion-item>
           <ion-label position="floating">invoicedate <span class="asterisk">*</span></ion-label>
-          <ion-input type="date" required placeholder="startdate" displayFormat="DDDD MMM D, YYYY" min="2005"></ion-input>
+          <ion-input type="date" required ngModel name="invoiceDate" (ionChange)="checkRequired($event,'invoiceDate')" placeholder="startdate" displayFormat="DDDD MMM D, YYYY" min="2005" max="{{maxDate}}"></ion-input>
         </ion-item>
         </ion-col>
       </ion-row>
