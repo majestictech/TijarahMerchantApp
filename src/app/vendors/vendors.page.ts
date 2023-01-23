@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-vendors',
   templateUrl: './vendors.page.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorsPage implements OnInit {
 
-  constructor() { }
+  constructor(translate: TranslateService) { }
 
   ngOnInit() {
   }
