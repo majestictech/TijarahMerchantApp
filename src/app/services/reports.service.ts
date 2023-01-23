@@ -17,7 +17,6 @@ export class ReportsService {
 
 	return this.http.get(this.env.API_URL+'/mediareport/'+this.env.APP_STORE_ID+'?start='+start+'&end='+end).pipe(
 
-
 	  map(results => results['results'])
 	);
   }
