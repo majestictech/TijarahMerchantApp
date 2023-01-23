@@ -31,3 +31,16 @@
    font-size: 14px;
    margin-top: 10px;
 }
+
+ion-item {
+    --padding-start: 0;
+    margin-bottom: 20px
+  }
+
+.barcode {
+    color: #000;
+}
+
+.products-list {
+    margin-inline: 0;
+}

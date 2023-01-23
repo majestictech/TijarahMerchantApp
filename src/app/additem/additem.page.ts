@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AdditemPageRoutingModule } from './additem-routing.module';
 @Component({
   selector: 'app-additem',
   templateUrl: './additem.page.html',
@@ -11,5 +12,6 @@ export class AdditemPage implements OnInit {
 
   ngOnInit() {
   }
+
 
 }
