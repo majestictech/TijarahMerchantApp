@@ -15,19 +15,32 @@
     <ion-col size="3" class="ion-text-center">
       <ion-button class="addvendor"  [routerLink]="['/addvendor']">
         <ion-icon name="add-circle"></ion-icon> 
-        {{ 'VENDOR.addvendor' | translate }}
       </ion-button>
     </ion-col>	
   </ion-row>
 
-  <ion-row class="greenback ion-margin-horizontal">
+<ion-card>  
+  <ion-card-content>
+    <ion-list>
+      <ion-item class="vendor-detail">
+        <ion-label><p>Vendor Name</p><p>9874563454</p></ion-label>
+        <ion-label> <p>755645585642358</p></ion-label>
+        <ion-button class="ion-text-center edit-button">
+					<span color="Dark"><ion-icon name="create-outline"></ion-icon></span>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+ <!--  <ion-row class="greenback ion-margin-horizontal">
     <ion-col size="3">{{ 'VENDOR.vendorsname' | translate }}</ion-col>
     <ion-col size="3" class="ion-text-center">{{ 'LOGIN.contactnumber' | translate }}</ion-col>
     <ion-col size="3" class="ion-text-center">{{ 'VENDOR.vatnumber' | translate }}</ion-col>
     <ion-col class="ion-text-right">{{ 'INVOICES.edit' | translate }}</ion-col>
-  </ion-row>
+  </ion-row> -->
 
-  <ion-list lines="full">
+ <!--  <ion-list lines="full">
     <ion-row class="shopbycategory ion-padding-horizontal" >
       <ion-col class="ion-padding-horizontal other" size="3">
         <p>Vendor Name</p>
@@ -62,5 +75,5 @@
         </ion-button>
       </ion-col>
     </ion-row>
-  </ion-list>
+  </ion-list> -->
 </ion-content>
