@@ -1,13 +1,16 @@
- <ion-header [translucent]="true"> 
+<ion-header [translucent]="true"> 
   <ion-toolbar>
     
     <ion-row>
-      <ion-col size="5">
-        <h4 class="invoice">Invoices</h4>
+      <!-- <ion-button slot="start">
+        <ion-back-button [routerLink]="['/tab4']">back</ion-back-button>
+      </ion-button> -->
+      <ion-col size="2">
+        <ion-icon [routerLink]="['/tabs/tab4']" name="arrow-back-outline"></ion-icon>
       </ion-col>	
             
-      <ion-col size="5" class="ion-text-center" routerDirection="forward">
-        			
+      <ion-col size="8" class="ion-text-center" routerDirection="forward">
+        			<h4 class="invoice">Invoices</h4>
       </ion-col>	
       <ion-col size="2" class="ion-text-center">
         
@@ -153,8 +156,17 @@
 <ion-content>
   <ion-searchbar class="customer_search" placeholder="Search by invoice no & supplier name"></ion-searchbar>
 
-  <ion-card>
+  <ion-card style="margin: 0;">
     <ion-card-header style="text-align: center;">
+      <ion-row>
+        <ion-col size="6" style="text-align: -webkit-right;">
+          <ion-input class="customdate" type="date" name="startDate" placeholder="startdate"></ion-input>
+        </ion-col>
+       
+        <ion-col size="6">
+          <ion-input class="customdate" type="date" name="endDate" placeholder="enddate"></ion-input>
+        </ion-col>
+      </ion-row>
       <ion-button style="width: 90; height: 35px;">All</ion-button>
       <ion-button style="width: 90px; height: 35px;">Completed</ion-button>
       <ion-button style="width: 90px; height: 35px;">Pending</ion-button>
@@ -166,7 +178,9 @@
           
           <ion-label><b style="font-size: 14px;">23453</b><br><span style="font-size: 10px;">2022-12-28</span><!-- <br><span style="font-size: 13px;"><b>Pending...</b></span> --></ion-label>
           <ion-label style="text-align: right; margin: 0;"><b style="font-size: 14px;">Test Vendor</b><br><span style="font-size: 10px;">+1-2345-678-90</span></ion-label>
-          <ion-label style="text-align: right;"><ion-icon name="eye-outline"></ion-icon></ion-label>
+          <ion-label style="text-align: right;">
+            <ion-icon name="eye-outline" class="icon"></ion-icon>
+          </ion-label>
           <!-- <ion-label style="text-align: right;"><b style="font-size: 13px;">Pending</b></ion-label> -->
           
         </ion-item>
@@ -175,7 +189,9 @@
           
           <ion-label><b style="font-size: 14px;">23453</b><br><span style="font-size: 10px;">2022-12-28</span><!-- <br><span style="font-size: 13px;"><b>Pending...</b></span> --></ion-label>
           <ion-label style="text-align: right; margin: 0;"><b style="font-size: 14px;">Test Vendor</b><br><span style="font-size: 10px;">+1-2345-678-90</span></ion-label>
-          <ion-label style="text-align: right;"><ion-icon name="eyedrop-outline"></ion-icon></ion-label>
+          <ion-label style="text-align: right;">
+            <ion-icon name="create-outline" class="icon"></ion-icon>
+          </ion-label>
           <!-- <ion-label style="text-align: right;"><b style="font-size: 13px;">Pending</b></ion-label> -->
           
         </ion-item>
@@ -184,7 +200,9 @@
           
           <ion-label><b style="font-size: 14px;">23453</b><br><span style="font-size: 10px;">2022-12-28</span><!-- <br><span style="font-size: 13px;"><b>Pending...</b></span> --></ion-label>
           <ion-label style="text-align: right; margin: 0;"><b style="font-size: 14px;">Test Vendor</b><br><span style="font-size: 10px;">+1-2345-678-90</span></ion-label>
-          <ion-label style="text-align: right;"><ion-icon name="eye-outline"></ion-icon></ion-label>
+          <ion-label style="text-align: right;">
+            <ion-icon name="eye-outline" class="icon"></ion-icon>
+          </ion-label>
           <!-- <ion-label style="text-align: right;"><b style="font-size: 13px;">Pending</b></ion-label> -->
           
         </ion-item>
@@ -193,11 +211,26 @@
           
           <ion-label><b style="font-size: 14px;">23453</b><br><span style="font-size: 10px;">2022-12-28</span><!-- <br><span style="font-size: 13px;"><b>Pending...</b></span> --></ion-label>
           <ion-label style="text-align: right; margin: 0;"><b style="font-size: 14px;">Test Vendor</b><br><span style="font-size: 10px;">+1-2345-678-90</span></ion-label>
-          <ion-label style="text-align: right;"><ion-icon name="eyedrop-outline"></ion-icon></ion-label>
+          <ion-label style="text-align: right;">
+            <ion-icon name="create-outline" class="icon"></ion-icon>
+          </ion-label>
           <!-- <ion-label style="text-align: right;"><b style="font-size: 13px;">Pending</b></ion-label> -->
           
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
+  
+    <ion-footer style="margin-top: 95px;">
+      <ion-card style="margin: 0; margin-top: 133px;">
+      <ion-row class="row-headingplus">
+        <ion-col size="4" class="ion-text-left"><b stye="font-size: 12px;">Total Amount Without VAT</b><br>SAR 232,072.08</ion-col>
+        <ion-col size="4" class="ion-text-center"><b>Total Paid Tax</b><br>SAR 0.00</ion-col>
+        <ion-col size="4" class="ion-text-right"><b>Total Amount with VAT</b><br>0.00</ion-col>
+      </ion-row>
+    </ion-card>
+    </ion-footer>
+  
+    
+  
 </ion-content>

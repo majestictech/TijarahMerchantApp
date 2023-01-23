@@ -41,10 +41,12 @@ ion-searchbar div.searchbar-input {
     background-color: #006C35 !important;
     color: #ffffff;
 }
-.customdate ion-input {
+.customdate  {
+	width: 125px;
     border: 1px solid;
     border-radius: 3px;
     height: 31px;
+	margin-bottom: 15px;
 }
 .addinvoice {
     background-color: #ffffff !important;
@@ -78,4 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .searchbar-input.sc-ion-searchbar-ios {
    font-size: 13px;
+}
+.icon {
+	color: #006C35;
 }
