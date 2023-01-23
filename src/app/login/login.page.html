@@ -12,28 +12,32 @@
 			<ion-label>Contact Number</ion-label>
 
 			<ion-item class="contactno">			
-				<ion-input autofocus="true" ngModel type="tel" name="contactNumber" placeholder="Enter Contact Number" maxlength="9" slot="" (keyup.enter)="login(form)" class="" required></ion-input>
+				<span class="phoneicon">+966 -</span>
+				<ion-input autofocus="true" type="tel" ngModel name="contactNumber" maxlength="9" slot="" (keyup.enter)="login(form)" class="contactno"></ion-input>
 			</ion-item>
 
 			<br>
 			<ion-label>Password</ion-label>
 			<ion-item>
-				<ion-input #showHidePassword ngModel type="password" name="password"  placeholder="Password" slot="" (keyup.enter)="login(form)" required></ion-input>
-
 				<img src="../assets/images/eye-off-outline-green.png" class="eyeicon show-option" (click)="toggleShow()" [hidden]="showPassword" width="22" />
-				<img (click)="toggleShow()" class="eyeicon hide-option"  src="../assets/images/eye-outline-green.png" [hidden]="!showPassword" width="22" />
+		<img (click)="toggleShow()" class="eyeicon hide-option"  src="../assets/images/eye-outline-green.png" [hidden]="!showPassword" width="22" />
+		<ion-input #showHidePassword ngModel  type="password" name="password" slot="" (keyup.enter)="login(form)"></ion-input>
 				
 			</ion-item>
-
-			<div>
+			<div style="text-align: center; width: 200px; margin: 0 auto;">
+				<ion-button type="submit" expand="block" class="apply" style="background-color: #003a02l;">
+					<p>Login</p>
+				</ion-button>
+			</div>
+			<!-- <div>
 				<ion-button type="submit" expand="block" class="apply" shape="round"> 
 					<p>LOGIN</p>
-					<!-- <img src="../assets/images/log-in-outline-green.png" class="login" width="20" /> -->
+					<img src="../assets/images/log-in-outline-green.png" class="login" width="20" />
 				</ion-button>
 					<a href="#" class="forgot">Forgot password?</a>
 					<a href="#">Reset here</a>
 
-			</div>
+			</div> -->
 		</form>	
 	</div>	
 </ion-content>
