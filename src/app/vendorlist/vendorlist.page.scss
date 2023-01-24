@@ -26,7 +26,7 @@
 }
 
 ion-searchbar {
-    font-size: 14px !important;
+    font-size: 12px !important;
     --border-radius: 10px;
 }
 
@@ -39,4 +39,8 @@ ion-searchbar {
 	--background-activated:var(--ion-color-plusprimary-contrast, #ffffff) !important;
 	text-transform:capitalize;
     margin-top: 10px;
+}
+
+.vendor-detail p{
+    color: #000;
 }
