@@ -1,0 +1,64 @@
+/* .save { 
+    width: 41%;
+    margin-left: 117px;
+    margin-top: 41px;
+}
+
+ion-toolbar ion-title
+{
+	padding-inline:0px;
+	font-weight:600;
+    font-size: 16px;
+}
+
+ion-toolbar {
+    --background: #006C35;
+    color: #ffffff;
+}
+
+ion-item {
+    //border-bottom: 2px solid var(--ion-color-plusprimary, #006C35);
+        top: 3px;
+}
+
+.apply
+{
+    --background: var(--ion-color-secondary, #003a02);
+    height:50px;
+    text-transform:capitalize;
+    position:-webkit-sticky;
+}
+
+.sidemenu{
+    width: 70%;
+    margin: 0 auto;
+    background: var(--ion-color-plusprimary-contrast, #ffffff);
+    border-radius: 8px;
+    padding-bottom: 20px;
+    height: 65vh;
+} */
+
+
+.editvendor {
+	color: #006C35;
+    font-size: 24px;
+}
+.edit-vendor-account {
+    font-size: 18px;
+    background-color: #006C35;
+    border-radius: 10px 10px 0 0;
+    padding: 20px 10px;
+    color: #fff;
+}
+.save {
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 30%;
+}
+.labels {
+    font-size: 18px !important;
+    color: #006C35;
+}
+.asterisk {
+    color: brown;
+}
