@@ -64,7 +64,19 @@ ion-searchbar div.searchbar-input {
 	color:var(--ion-color-plusprimary-contrast, #ffffff);
 	padding: 4px 16px;
 }
-
+.row-headingplus{
+	background:var(--ion-color-plusprimary, #006C35);
+	color:var(--ion-color-light-tint, #CCE2D7);
+	font-size: 12px !important;
+    /* text-transform: uppercase; */
+	 bottom: 0px;
+	padding: 4px 20px;
+	
+}
+.row-headingplus span {
+	font-size:12px !important;
+	color:var(--ion-color-plusprimary-contrast, #ffffff) !important;
+}
 .add-invoice-btn {
 	width: 30px;
 	height: 30px;
