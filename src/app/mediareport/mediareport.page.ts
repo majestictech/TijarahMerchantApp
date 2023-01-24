@@ -16,7 +16,7 @@ export class MediareportPage implements OnInit {
 	cashAmount = 0;
 	cardAmount = 0;
 	otherAmount = 0;
-	loadDataOne = 0;
+
 
 
   constructor(public env: EnvService, public reportsService:ReportsService) { }
