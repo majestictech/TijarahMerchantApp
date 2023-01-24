@@ -41,6 +41,7 @@
 
 	"INVOICE": {
 		"addinvoices": "Add Invoice",
+		"invoices": "Invoices",
 		"editinvoices": "Edit Invoices",
 		"quickinvoice": "Quick Invoice",
 		"createinvoice": "Create Invoice",
@@ -69,7 +70,10 @@
 		"edit": "Edit",
 		"update": "Update",
 		"totaltaxablevalue":"Total Amount Without VAT",
+		"totalpaidtax":"Total Paid Tax",
+		"totalamount":"Total Amount",
 		"instock":"In Stock"
+		
 	},
 
 	"ADDITEM": {
@@ -79,7 +83,10 @@
 
 	"VENDOR": {
 		"addvendor": "Add Vendor", 
+		"editvendoraccount": "Edit Vendor Account", 
+		"editvendor": "Edit Vendor", 
 		"vendorlist": "Vendor List",
+		"vendorname": "Vendor Name",
 		"vatnumber": "VAT Number",
 		"vandorsname": "Vandors Name",
 		"searchbyvendorname": "Search By Vandor Name"
@@ -89,5 +96,7 @@
 	"ADDINVOICE": {
 		"invoicenumber": "Invoice Number"
 	}
+
+	
 
 }

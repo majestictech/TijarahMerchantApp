@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { EditvendorPageRoutingModule } from './editvendor-routing.module';
 
 import { EditvendorPage } from './editvendor.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditvendorPageRoutingModule
+    EditvendorPageRoutingModule,
+    TranslateModule
   ],
   declarations: [EditvendorPage]
 })
