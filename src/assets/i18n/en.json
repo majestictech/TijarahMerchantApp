@@ -24,7 +24,7 @@
 		"category": "Category",
 		"subcategory": "Sub-Category",
 		"sellingprice": "selling Price",
-		"codepricewithvat": "Code Price With Vat",
+		"costpricewithvat": "Cost Price With Vat",
 		"nearexpirynotification": "Near Expiry Notification",
 		"vat": "VAT",
 		"printbarcode": "Print Barcode",
