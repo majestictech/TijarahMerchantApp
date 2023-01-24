@@ -20,7 +20,7 @@ export class EnvService {
   //API_URL = 'https://majestictechnosoft.com/retailb2b/api';
   API_URL = 'http://192.168.1.22/retailb2b/api';
 
-  APP_DEBUG = true;
+  APP_DEBUG = false;
 
   constructor(private toastController: ToastController) { }
    async presentToast(text) 

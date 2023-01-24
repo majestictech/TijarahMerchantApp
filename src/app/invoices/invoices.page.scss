@@ -41,10 +41,12 @@ ion-searchbar div.searchbar-input {
     background-color: #006C35 !important;
     color: #ffffff;
 }
-.customdate ion-input {
+.customdate  {
+	width: 125px;
     border: 1px solid;
     border-radius: 3px;
     height: 31px;
+	margin-bottom: 15px;
 }
 .addinvoice {
     background-color: #ffffff !important;
@@ -61,4 +63,36 @@ ion-searchbar div.searchbar-input {
 	font-size: 14px;
 	color:var(--ion-color-plusprimary-contrast, #ffffff);
 	padding: 4px 16px;
+}
+.row-headingplus{
+	background:var(--ion-color-plusprimary, #006C35);
+	color:var(--ion-color-light-tint, #CCE2D7);
+	font-size: 12px !important;
+    /* text-transform: uppercase; */
+	 bottom: 0px;
+	padding: 4px 20px;
+	
+}
+.row-headingplus span {
+	font-size:12px !important;
+	color:var(--ion-color-plusprimary-contrast, #ffffff) !important;
+}
+.add-invoice-btn {
+	width: 30px;
+	height: 30px;
+}
+.invoice {
+	margin-left: 10px;
+	color: #006C35;
+    font-size: 30px;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.searchbar-input.sc-ion-searchbar-ios {
+   font-size: 13px;
+}
+.icon {
+	color: #006C35;
 }

@@ -1,25 +1,30 @@
-<ion-header>
+<ion-header [translucent]="true"> 
   <ion-toolbar>
-    <ion-title>Add Invoice</ion-title>
+    
+    <ion-row>
+      <!-- <ion-button slot="start">
+        <ion-back-button [routerLink]="['/tab4']">back</ion-back-button>
+      </ion-button> -->
+      <ion-col size="2">
+        <ion-icon [routerLink]="['/invoices']" name="arrow-back-outline"></ion-icon>
+      </ion-col>	
+            
+      <ion-col size="8" class="ion-text-center" routerDirection="forward">
+        			<h4 class="addinvoice">Add Invoices</h4>
+      </ion-col>	
+      <ion-col size="2" class="ion-text-center">
+      </ion-col>	
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-row class="ion-padding-horizontal ion-padding-top">
-    <ion-col size="1" class="back" [routerLink]="['/invoices']">
-      <p><ion-icon name="chevron-back-outline"></ion-icon>Back</p>
-    </ion-col>
-  
-    <ion-col size="5" class="addinvoice ion-padding-top">
-      <span>Addinvoices</span>
-    </ion-col>
-  </ion-row>
+  <!-- <ion-searchbar class="customer_search" placeholder="Search by invoice no & supplier name"></ion-searchbar> -->
 
-  <div>
-			
-    <form method="post">
-      
+  <ion-card style="margin: 0;">
+    <!-- <ion-card-header style="text-align: center;">
       <ion-row>
+
 
         <ion-col size="4">
           <ion-item lines="none" *ngIf="assignedVendor == 'none'">
@@ -131,15 +136,17 @@
       </div>
     </form>
   </div>
+
 </ion-content>
+
 <ion-footer class="bottom-footer">
   <ion-list lines="none">
     <ion-row class="ion-padding-horizontal">
       <ion-col size="6">
-        <p>Amount</p>
+        <p class="footer-font">Amount</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
       </ion-col>
     </ion-row>
     <!--
@@ -154,24 +161,24 @@
     -->
     <ion-row class="ion-padding-horizontal borderbottom">
       <ion-col size="6">
-        <p>Vat Amount</p>
+        <p class="footer-font">Vat Amount</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding-horizontal">
       <ion-col size="6">
-        <p>Total Amount with VAT</p>
+        <p class="footer-font">Total Amount with VAT</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
       </ion-col>
     </ion-row>
   </ion-list>
   <ion-row>
     <ion-col size="6">
-      <ion-button expand="block" class="apply" color="success" disabled>Create Invoice</ion-button>
+      <ion-button expand="block" class="apply" color="" disabled>Create Invoice</ion-button>
       
     </ion-col>
     <ion-col size="6">
