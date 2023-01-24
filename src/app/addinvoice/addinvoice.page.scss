@@ -43,3 +43,27 @@ ion-searchbar input {
 	margin-top:0px;
 	text-transform:capitalize;
 }
+
+.addinvoice {
+	margin-left: 10px;
+	color: #006C35;
+    font-size: 30px;
+}
+
+form ion-label
+{
+	font-size: 15px !important;
+	color: #006C35;
+}
+
+.select_vendor, .product_search {
+	/* --background:var(--ion-color-light-shade, #d7d8da) !important;
+	--border-radius:20px !important;
+	border:none;
+	--placeholder-color:var(--ion-color-dark, #000); */
+	padding: 0;
+}
+
+.footer-font {
+	font-size: 15px;
+}

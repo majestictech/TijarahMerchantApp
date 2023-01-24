@@ -1,55 +1,117 @@
-<ion-header>
+<ion-header [translucent]="true"> 
   <ion-toolbar>
-    <ion-title>Add Invoice</ion-title>
+    
+    <ion-row>
+      <!-- <ion-button slot="start">
+        <ion-back-button [routerLink]="['/tab4']">back</ion-back-button>
+      </ion-button> -->
+      <ion-col size="2">
+        <ion-icon [routerLink]="['/invoices']" name="arrow-back-outline"></ion-icon>
+      </ion-col>	
+            
+      <ion-col size="8" class="ion-text-center" routerDirection="forward">
+        			<h4 class="addinvoice">Add Invoices</h4>
+      </ion-col>	
+      <ion-col size="2" class="ion-text-center">
+      </ion-col>	
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-row class="ion-padding-horizontal ion-padding-top">
-    <ion-col size="1" class="back" [routerLink]="['/invoices']">
-      <p><ion-icon name="chevron-back-outline"></ion-icon>Back</p>
-    </ion-col>
-  
-    <ion-col size="5" class="addinvoice ion-padding-top">
-      <span>Addinvoices</span>
-    </ion-col>
-  </ion-row>
+  <!-- <ion-searchbar class="customer_search" placeholder="Search by invoice no & supplier name"></ion-searchbar> -->
 
-  <div>
-			
-    <form method="post">
-      
+  <ion-card style="margin: 0;">
+    <!-- <ion-card-header style="text-align: center;">
       <ion-row>
 
-        <ion-col size="4">
-          <ion-item lines="none">
-            <!-- <ion-label style="color:#006C35;" position="stacked">selectvendor<span class="asterisk">*</span></ion-label> -->
-            <ion-searchbar style="border-radius: 20px;" class="select_vendor" searchIcon="undefined" type="text" debounce="500" placeholder="Select Vendor"></ion-searchbar>
-          </ion-item>
 
+        <ion-col size="4">
+          <ion-item lines="none" *ngIf="assignedVendor == 'none'">
+						<ion-label position="stacked">Select Vendor <span class="asterisk">*</span></ion-label>
+						<ion-searchbar #autofocus class="select_vendor" searchIcon="undefined" type="text" debounce="500" (ionChange)="getVendors($event)" placeholder="Select Vendor" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" ></ion-searchbar>
+					</ion-item>
+          <ion-item lines="none" *ngIf="assignedVendor != 'none'">
+						{{assignedVendor}}
+						<img src="../assets/images/close-circle.png" width="22" (click)="clearVendor()" slot="start" />
+						<img src="../assets/images/person-add-outline.png" width="22" [routerLink]="['/addvendor']" routerDirection="forward" slot="end" />
+					</ion-item>
+
+          <ion-list *ngIf="isVendorAvailable">
+						<ng-container *ngIf="vendors.length!=0">
+							<ion-item *ngFor="let vendor of vendors">
+								<ion-row class="searchrow">
+									<ion-col size="8" class="alignment">
+										{{vendor.vendorName}}
+									</ion-col>
+									<ion-col size="4">
+										<ion-button class="btnadd" (click)="addVendor(vendor)" expand="block">Assign</ion-button>
+									</ion-col>
+								</ion-row>
+							</ion-item>
+						</ng-container>
+						<ng-container *ngIf="vendors.length==0">
+							<ion-list class="ion-text-center">No vendor<br>
+							<ion-button size="small" color="medium" [routerLink]="['/addvendor']" routerDirection="forward" class="btnadd"><img src="../assets/images/bag-add-outline.png" width="22" slot="start" />Add Vendor </ion-button>
+							
+							</ion-list>
+						</ng-container>
+					</ion-list>
         </ion-col>
       
         <ion-col size="4">
 
           <ion-item>
-            <ion-label style="color: #006C35;" position="floating">Invoice Number<span class="asterisk">*</span></ion-label>
-            <ion-input type="text" required name="invoiceNumber"></ion-input>
-          </ion-item>
+					  <ion-label position="floating">Invoice Number <span class="asterisk">*</span></ion-label>
+					  <ion-input type="text" required name="invoiceNumber" [(ngModel)]="invoiceNumber" (ionChange)="checkRequired($event,'invoiceNumber');" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-input>
+					  
+					</ion-item>
         </ion-col>
 
         <ion-col size="4">
-        <ion-item>
-
-          <ion-label style="color:#006C35;" position="floating">Invoice Date <span class="asterisk">*</span></ion-label>
-          <ion-input type="date" required placeholder="startdate" displayFormat="DDDD MMM D, YYYY" min="2005"></ion-input>
-
-        </ion-item>
+          <ion-item>
+					  <ion-label position="floating">Invoice Date <span class="asterisk">*</span></ion-label>
+						<ion-input type="date" required ngModel name="invoiceDate" (ionChange)="checkRequired($event,'invoiceDate')" placeholder="Start Date" displayFormat="DDDD MMM D, YYYY" min="2005" max="{{maxDate}}"></ion-input>
+					  
+					  
+					  
+					</ion-item>
         </ion-col>
       </ion-row>
       <ion-item lines="none">
-        <ion-searchbar searchIcon="" class="product_search" type="text" debounce="500" name="searchText" placeholder="Product" ></ion-searchbar>
-      </ion-item>
-      
+        <ion-searchbar searchIcon="" class="product_search" type="text" debounce="500" (ionChange)="getItems($event)" [(ngModel)]="searchText" name="searchText" placeholder="Products" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" ></ion-searchbar>
+      </ion-item>	
+
+
+      <div *ngIf="isItemAvailable">
+        <ng-container *ngIf="items.length!=0">	
+          <ion-item class="productlist" *ngFor="let item of (items)| slice:0:5; let i=index">
+          <ion-row class="searchrow">
+            <ion-col size="2" class="imagealign">
+              <img />
+            </ion-col>
+            
+             <ion-col class="" size="6">
+              <p class="displaytext">{{item.name}} <small>({{item.barCode}})</small></p>
+              <!-- {{ 'PROFIT.cp' | translate }}: SAR <span class="primarycolor">{{item.costPrice | number: '1.2-2'}}</span>
+              | -->
+              Selling Price: SAR <span class="primarycolor">{{item.sellingPrice | number: '1.2-2'}}</span>
+              | <span class="primarycolor">{{item.inventory}}</span> in Stock
+              </ion-col>
+              <ion-col size="4">
+              <ion-button (click)="addToCart(item)" class="btnadd" expand="block">Add</ion-button>
+              </ion-col>
+          </ion-row>
+          </ion-item>
+        </ng-container>
+        <ng-container *ngIf="items.length==0">
+          <ion-list class="ion-text-center">No product found<br>
+          <ion-button size="small" color="medium" [routerLink]="['/addproduct']" routerDirection="forward"><img src="../assets/images/bag-add-outline.png" width="22" slot="start" />Add inventory </ion-button>
+          
+          </ion-list>
+        </ng-container>
+      </div>
+
       <div class="divmargin">
         <ion-row class="ion-padding ion-margin greenback">
           <!--<ion-col size="2">
@@ -74,15 +136,17 @@
       </div>
     </form>
   </div>
+
 </ion-content>
+
 <ion-footer class="bottom-footer">
   <ion-list lines="none">
     <ion-row class="ion-padding-horizontal">
       <ion-col size="6">
-        <p>Amount</p>
+        <p class="footer-font">Amount</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
       </ion-col>
     </ion-row>
     <!--
@@ -97,24 +161,24 @@
     -->
     <ion-row class="ion-padding-horizontal borderbottom">
       <ion-col size="6">
-        <p>Vat Amount</p>
+        <p class="footer-font">Vat Amount</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding-horizontal">
       <ion-col size="6">
-        <p>Total Amount with VAT</p>
+        <p class="footer-font">Total Amount with VAT</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right">SAR <span class="plusprimarycolor">0.00</span></p>
+        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
       </ion-col>
     </ion-row>
   </ion-list>
   <ion-row>
     <ion-col size="6">
-      <ion-button expand="block" class="apply" color="success" disabled>Create Invoice</ion-button>
+      <ion-button expand="block" class="apply" color="" disabled>Create Invoice</ion-button>
       
     </ion-col>
     <ion-col size="6">
