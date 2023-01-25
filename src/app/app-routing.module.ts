@@ -134,7 +134,11 @@ const routes: Routes = [
       preload: true,
 	  name: 'editvendor'
     }
+  },  {
+    path: 'viewinvoice',
+    loadChildren: () => import('./viewinvoice/viewinvoice.module').then( m => m.ViewinvoicePageModule)
   }
+
 
 
 
