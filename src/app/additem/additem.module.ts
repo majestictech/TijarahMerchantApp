@@ -11,12 +11,12 @@ import { AdditemPage } from './additem.page';
 import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
+    CommonModule, 
+    FormsModule, 
     IonicModule,
-    AdditemPageRoutingModule,
-    TranslateModule 
-  ],
-  declarations: [AdditemPage]
-})
-export class AdditemPageModule {}
+    AdditemPageRoutingModule, 
+    TranslateModule  
+  ], 
+  declarations: [AdditemPage] 
+}) 
+export class AdditemPageModule {} 

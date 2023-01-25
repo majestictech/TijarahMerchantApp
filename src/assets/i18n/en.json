@@ -100,8 +100,11 @@
 
 	"ADDINVOICE": {
 		"invoicenumber": "Invoice Number"
-	}
+	},
 
+	"CREATEINVOICE": {
+		
+	}
 	
 
 }

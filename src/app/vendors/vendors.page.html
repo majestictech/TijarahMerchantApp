@@ -11,7 +11,7 @@
 
   <ion-row>
     <ion-col size="6">
-      <ion-searchbar class="customer_search"  placeholder="{{ 'VENDOR.searchbyvendorname'| translate }}"></ion-searchbar>				
+      <ion-searchbar class="customer_search" #searchVendors debounce="500" searchIcon="undefined" placeholder="{{ 'VENDOR.searchbyvendorname'| translate }}" (ionChange)="getItems($event)"></ion-searchbar>				
     </ion-col>
     <ion-col size="3"></ion-col>
     <ion-col size="3" class="ion-text-center">
@@ -22,28 +22,41 @@
     </ion-col>	
   </ion-row>
 
-  <ion-row class="greenback ion-margin-horizontal">
+  <ion-card>  
+    <ion-card-content>
+      <ion-list>
+        <ion-item class="vendor-detail" *ngFor="let vendors of (vendors_res)">
+          <ion-label><p><b>{{vendors.vendorName}}</b></p><p>paid: SAR {{env.languageParseNumbers(vendors.totalAmount | number: '1.2-2')}}</p><p>Due: SAR {{env.languageParseNumbers(0)}}</p></ion-label>
+          <ion-label></ion-label>
+          <ion-label class="ion-text-center"> <p><b>Total Amount With VAT:</b> <br> SAR {{env.languageParseNumbers(vendors.totalAmount | number: '1.2-2')}}</p></ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+ <!--  <ion-row class="greenback ion-margin-horizontal">
     <ion-col size="3">{{ 'VENDOR.vendorsname' | translate }}</ion-col>
     <ion-col size="3" class="ion-text-center">{{ 'VENDOR.paidamount' | translate }}</ion-col>
     <ion-col size="3" class="ion-text-center">{{ 'VENDOR.dueamount' | translate }}</ion-col>
     <ion-col class="ion-text-right">{{ 'VENDOR.totalamountwithvat' | translate }}</ion-col>
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row class="report-textplus ion-margin-horizontal">
+  <!-- <ion-row class="report-textplus ion-margin-horizontal">
     <ion-col size="3">Vendor Name</ion-col>			
     <ion-col size="3" class="ion-text-center"><span>SAR <span class="plusprimarycolor">2000</span></span></ion-col>
     
     <ion-col size="3" class="ion-text-center"><span>SAR <span class="plusprimarycolor">500</span></span></ion-col>
     
     <ion-col class="ion-text-right"><span>SAR <span class="primarycolor">2500</span></span></ion-col>
-  </ion-row>
+  </ion-row> -->
+
 
 </ion-content>
 
 <ion-footer>
   <ion-row class="row-headingplus">
-    <ion-col size="4"><b>{{ 'VENDOR.vendorscount' | translate }}</b><br>vendor count</ion-col>
-    <ion-col size="4" class="ion-text-center" ><b>{{ 'VENDOR.totalpaidtax' | translate }}</b><br>SAR 1200</ion-col>
-    <ion-col size="4" class="ion-text-right"><b>{{ 'INVOICE.totalamount' | translate }}</b><br>SAR 2500</ion-col>
+    <ion-col size="4"><b>{{ 'VENDOR.vendorscount' | translate }}</b><br>{{env.languageParseNumbers(vendorCount)}}</ion-col>
+    <ion-col size="4" class="ion-text-center" ><b>{{ 'VENDOR.totalpaidtax' | translate }}</b><br>SAR {{env.languageParseNumbers(totalVat | number: '1.2-2')}}</ion-col>
+    <ion-col size="4" class="ion-text-right"><b>{{ 'INVOICE.totalamount' | translate }}</b><br>SAR {{env.languageParseNumbers(totalSumAmount | number: '1.2-2')}}</ion-col>
   </ion-row>
 </ion-footer>
