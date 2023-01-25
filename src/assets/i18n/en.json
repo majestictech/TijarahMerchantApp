@@ -55,7 +55,7 @@
 		"product": "Product",
 		"searchbyinvoiceno": "Search by Invoice Number and Supplier Name",
 		"totalamt": "Total Amount",
-		"totalamount": "Total Amount with VAT",
+		"totalamountwithvat": "Total Amount with VAT",
 		"vatamount": "VAT Amount",
 		"selecttheitems": "Select the Items",
 		"productsselected": "Products Selected",

@@ -13,7 +13,8 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    AddinvoicePageRoutingModule
+    AddinvoicePageRoutingModule,
+    TranslateModule
   ],
   declarations: [AddinvoicePage]
 })

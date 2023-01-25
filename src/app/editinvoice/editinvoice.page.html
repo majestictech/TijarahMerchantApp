@@ -1,9 +1,46 @@
-<ion-header>
+<ion-header [translucent]="true"> 
   <ion-toolbar>
-    <ion-title>editinvoice</ion-title>
+    <ion-row>
+      <ion-col size="2">
+        <ion-icon [routerLink]="['/invoices']" name="arrow-back-outline"></ion-icon>
+      </ion-col>	
+            
+      <ion-col size="8" class="ion-text-center" routerDirection="forward">
+        			<h4 class="editinvoice">Edit Invoices</h4>
+      </ion-col>	
+      <ion-col size="2" class="ion-text-center">
+      </ion-col>	
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card style="margin: 0;">
+    <ion-card-content>
+      <form method="post">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">{{ 'INVOICE.selectvendor' | translate }}<span class="asterisk">*</span><br>
+              <ion-searchbar class="select_vendor" searchIcon="undefined" type="text" debounce="500"  placeholder="{{ 'INVOICE.selectvendor' | translate }}"></ion-searchbar></ion-label>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label class="label-font-size" position="floating">{{ 'INVOICE.invoicenumber' | translate }}<span class="asterisk">*</span>
+              <ion-input type="text" required name="invoiceNumber"  (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-input>
+            </ion-label>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label class="label-font-size" position="floating">{{ 'INVOICE.invoicedate' | translate }}<span class="asterisk">*</span>
+              <ion-input type="date" required ngModel name="invoiceDate" (ionChange)="checkRequired($event,'invoiceDate')" placeholder="startdate" displayFormat="DDDD MMM D, YYYY" min="2005" max="maxDate"></ion-input>
+            </ion-label>
+          </ion-item>
+    
+          <ion-item>
+            <ion-searchbar searchIcon="" class="product_search" type="text" debounce="500" (ionChange)="getItems($event)" [(ngModel)]="searchText" name="searchText" placeholder="{{ 'INVOICE.product' | translate }}" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" ></ion-searchbar>
+          </ion-item>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -10,7 +10,7 @@
       </ion-col>	
             
       <ion-col size="8" class="ion-text-center" routerDirection="forward">
-        			<h4 class="addinvoice">Add Invoices</h4>
+        			<h4 class="addinvoice">{{ 'INVOICE.addinvoices' | translate }}</h4>
       </ion-col>	
       <ion-col size="2" class="ion-text-center">
       </ion-col>	
@@ -41,24 +41,24 @@
       <form method="post">
         <ion-list>
           <ion-item>
-            <ion-label position="stacked">selectvendor <span class="asterisk">*</span><br>
+            <ion-label position="stacked">{{ 'INVOICE.selectvendor' | translate }}<span class="asterisk">*</span><br>
               <ion-searchbar class="select_vendor" searchIcon="undefined" type="text" debounce="500"  placeholder="Select Vendor"></ion-searchbar></ion-label>
           </ion-item>
     
           <ion-item>
-            <ion-label position="floating">invoicenumber<span class="asterisk">*</span>
+            <ion-label position="floating">{{ 'INVOICE.invoicenumber' | translate }}<span class="asterisk">*</span>
               <ion-input type="text" required name="invoiceNumber"  (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-input>
             </ion-label>
           </ion-item>
     
           <ion-item>
-            <ion-label position="floating">invoicedate<span class="asterisk">*</span>
+            <ion-label position="floating">{{ 'INVOICE.invoicedate' | translate }}<span class="asterisk">*</span>
               <ion-input type="date" required ngModel name="invoiceDate" (ionChange)="checkRequired($event,'invoiceDate')" placeholder="startdate" displayFormat="DDDD MMM D, YYYY" min="2005" max="maxDate"></ion-input>
             </ion-label>
           </ion-item>
     
           <ion-item>
-            <ion-searchbar searchIcon="" class="product_search" type="text" debounce="500" (ionChange)="getItems($event)" [(ngModel)]="searchText" name="searchText" placeholder="Product" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" ></ion-searchbar>
+            <ion-searchbar searchIcon="" class="product_search" type="text" debounce="500" (ionChange)="getItems($event)" [(ngModel)]="searchText" name="searchText" placeholder="{{ 'INVOICE.product' | translate }}" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" ></ion-searchbar>
           </ion-item>
         </ion-list>
       </form>
@@ -88,7 +88,7 @@
     -->
     <ion-row class="ion-padding-horizontal borderbottom">
       <ion-col size="6">
-        <p class="footer-font">Vat Amount</p>
+        <p class="footer-font">{{ 'INVOICE.vatamount' | translate }}</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
         <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
@@ -96,7 +96,7 @@
     </ion-row>
     <ion-row class="ion-padding-horizontal">
       <ion-col size="6">
-        <p class="footer-font">Total Amount with VAT</p>
+        <p class="footer-font">{{ 'INVOICE.totalamountwithvat' | translate }}</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
         <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">0.00</span></p>
@@ -105,7 +105,7 @@
   </ion-list>
   <ion-row>
     <ion-col size="6">
-      <ion-button expand="block" class="apply" color="" disabled>Create Invoice</ion-button>
+      <ion-button expand="block" class="apply" color="" disabled>{{ 'INVOICE.createinvoice' | translate }}</ion-button>
       
     </ion-col>
     <ion-col size="6">

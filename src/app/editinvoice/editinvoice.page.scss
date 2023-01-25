@@ -1,0 +1,22 @@
+.editinvoice {
+    margin-left: 10px;
+	color: #006C35;
+    font-size: 24px;
+}
+.select_vendor, .product_search {
+	/* --background:var(--ion-color-light-shade, #d7d8da) !important;
+	--border-radius:20px !important;
+	border:none;
+	--placeholder-color:var(--ion-color-dark, #000); */
+	padding: 0;
+}
+.asterisk {
+    color: brown;
+}
+.label-font-size {
+    font-size: 14px;
+}
+
+ion-searchbar::placeholder {
+    font-size: 5px !important;
+}
