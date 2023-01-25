@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-
+import { Platform, LoadingController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,12 @@ export class EnvService {
   API_URL = 'http://192.168.1.22/retailb2b/api';
 
   APP_DEBUG = false;
+  inputTap = 0;
 
-  constructor(private toastController: ToastController) { }
+
+
+
+  constructor(private toastController: ToastController,private loadingController: LoadingController,) { }
    async presentToast(text) 
   {
 	const toast = await this.toastController.create({
@@ -36,4 +40,36 @@ export class EnvService {
     if(this.APP_DEBUG)
       alert(msg);
     }
+
+    tapEvent(ev: any, msg) {
+      if(ev.target.value == '')
+        return;
+      
+      this.inputTap++;
+    
+      if(this.inputTap <= 2) {
+        // value 2 means click
+        // onfocus value becomes 1 then same time click also called so it becomes 2
+        ev.target.select();
+      }
+      }
+
+
+ blurEvent(ev: any, msg) {
+	  this.inputTap = 0;
+  }
+
+  languageParseNumbers(number) {
+    if(this.APP_LANG == 'en') {
+      return number;
+    }
+    else if(this.APP_LANG == 'ar') {
+      //return Intl.NumberFormat('ar-EG').format(number);
+      return number;
+    }
+    } 
+    hideLoader() {
+      this.loadingController.dismiss();
+    }
+  
 }

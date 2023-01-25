@@ -10,6 +10,9 @@ import { BehaviorSubject } from 'rxjs';
 import { InventoryService } from '../services/inventory.service';
 import { IonSearchbar } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
+
+
+
 //import { CreateinvoicePage } from '../modals/createinvoice/createinvoice.page';
 @Component({
   selector: 'app-addinvoice',
@@ -43,6 +46,22 @@ export class AddinvoicePage implements OnInit {
   products = [];
   cartItemCount: BehaviorSubject<number>;
   cartTotalAmount: BehaviorSubject<number>;
+  selectedTab: string = '';
+  productsRefund = [];
+  cartAddProduct = [];
+  cartrefund = [];
+  cartTotalRefund: number = 0;
+  cartVatRefund: number = 0;
+  itemsrefund = [];
+  items_res_images = [];
+  isItemAvailableRefund = false;
+  searchTextRefund: string = '';
+
+
+
+
+
+
 
 
 
@@ -195,6 +214,50 @@ ionViewWillEnter()
 	}
 
 
+	getItemsRefund(ev: any) 
+	{
+		console.log('Get items called...');
+		this.itemsrefund = [];
+		this.isItemAvailableRefund = false;
+
+		const val = ev.target.value;
+		
+		if(val == '') {
+			this.isItemAvailableRefund = false;
+			return;
+		}
+		
+		//console.log(this.items);
+		this.itemsrefund = this.items_res.filter(itemrefund => {
+			if(itemrefund.barCode == null && itemrefund.name_ar == null) {
+					if(itemrefund.name.toLowerCase().indexOf(val.toLowerCase()) == 0 || itemrefund.name.toLowerCase().indexOf(' ' + val.toLowerCase()) != -1){
+						return itemrefund;
+					}
+				}
+				else if(itemrefund.barCode != null && itemrefund.name_ar == null) {
+					if((itemrefund.name.toLowerCase().indexOf(val.toLowerCase()) == 0 || itemrefund.name.toLowerCase().indexOf(' ' + val.toLowerCase()) != -1) || itemrefund.barCode.toLowerCase().indexOf(val.toLowerCase())==0){
+						return itemrefund;
+					}
+				}
+				else if(itemrefund.barCode == null && itemrefund.name_ar != null) {
+					if((itemrefund.name.toLowerCase().indexOf(val.toLowerCase()) == 0 || itemrefund.name.toLowerCase().indexOf(' ' + val.toLowerCase()) != -1) || itemrefund.name_ar.toLowerCase().indexOf(val.toLowerCase())==0){
+						return itemrefund;
+					}
+				}
+				else {
+					if((itemrefund.name.toLowerCase().indexOf(val.toLowerCase()) == 0 || itemrefund.name.toLowerCase().indexOf(' ' + val.toLowerCase()) != -1) || itemrefund.name_ar.toLowerCase().indexOf(val.toLowerCase())==0 || itemrefund.barCode.toLowerCase().indexOf(val.toLowerCase())==0){
+						return itemrefund;
+						console.log("No item found");
+					}
+				}
+		  });
+		  
+		if(this.itemsrefund){
+			this.isItemAvailableRefund = true;
+		}  
+		  
+	}
+
 	addProduct(product) 
 	{
 		let added = false;
@@ -246,6 +309,46 @@ ionViewWillEnter()
 		//setTimeout(() => {this.keyboard.hide();}, 500);
 		this.isItemAvailable = false;
 	}
+	addToCartRefund(product) 
+	{
+		this.addProductRefund(product);
+		//this.env.sound();
+		this.searchTextRefund = '';
+		
+		setTimeout(() => {this.searchbar.setFocus();}, 300);
+		//setTimeout(() => {this.keyboard.hide();}, 500);
+		this.isItemAvailableRefund = false;
+	}
+
+	addProductRefund(productrefund) 
+	{
+		//alert('refund');
+		let added = false;
+		for (let p of this.cartrefund) 
+		{
+		  if (p.id === productrefund.id) 
+		  {
+			p.quantity += 1;
+			added = true;
+			break;
+		  }
+		}
+		if (!added) 
+		{
+		  productrefund.quantity = 1;
+		  
+		  productrefund.costPrice = productrefund.sellingPrice;
+		  productrefund.quantity = productrefund.quantity;
+		  
+		  this.cartrefund.unshift(productrefund);
+		}
+		if(productrefund.tax > 0)
+			this.cartVatRefund = (parseFloat(productrefund.costPrice) - (productrefund.costPrice / (1+ (productrefund.tax/100))))+ this.cartVatRefund;
+		
+		this.cartTotalRefund = this.cartTotalRefund + (productrefund.quantity * productrefund.costPrice);
+	
+	}
+
 
 	deleteCartItem(product) 
 	{
@@ -293,6 +396,75 @@ ionViewWillEnter()
 		} */
 
 	}
+	getCartRefund() 
+	{
+		console.log('Cart Items');
+		console.log(this.cartrefund);
+		return this.cartrefund;
+	}
+	switchTab(tabValue) 
+    {
+		/* this.env.sound(); */
+		
+		this.selectedTab = tabValue;
+		
+		console.log(tabValue);
+		
+		this.productsRefund = this.getCartRefund();
+    }
+
+	onChangeRefund(product, type, values:any)
+	{
+		let value = values.target.value;
+			
+		this.cartTotalRefund = 0;
+		this.cartVatRefund = 0;
+		for (let [index, p] of this.cartrefund.entries()) {
+		  if (p.id === product.id) {
+			if(type == 'cp') {
+				p.costPrice = value;
+			}
+			else if(type == 'qty') {
+				p.quantity = value;
+			}
+		  }
+		  
+		  console.log('costPrice: ' + p.costPrice + ' VAT: ' + p.tax + ' Qty: '+ p.quantity);
+		  console.log('VAT: ' + (p.costPrice - (p.costPrice/(1+p.tax/100)))*p.quantity + ' tax: ' + (p.costPrice/(1+p.tax/100)) + ' -- ' + (p.costPrice - (p.costPrice/(1+p.tax/100))));
+		  
+		  this.cartTotalRefund = this.cartTotalRefund + (p.quantity * p.costPrice);
+		  //this.cartVat = this.cartVat + ((p.costPrice * p.tax)/100);
+		  this.cartVatRefund = this.cartVatRefund + (p.costPrice - (p.costPrice/(1+p.tax/100)))*p.quantity;
+		}
+		
+		console.log(this.cartrefund);
+	}
+
+	deleteCartItemRefund(product)
+	{
+		this.removeProductRefund(product);
+		//this.env.sound();
+		this.productsRefund = this.getCartRefund();
+	}
+	removeProductRefund(product) 
+   {
+	this.cartTotalRefund = 0;
+	this.cartVatRefund = 0;
+	
+	for (let [index, p] of this.cartrefund.entries()) {
+	  if (p.id === product.id) {
+		this.cartrefund.splice(index, 1);			
+	  }
+	}
+	
+	for (let [index, p] of this.cartrefund.entries()) {
+	  this.cartTotalRefund = this.cartTotalRefund + (p.quantity * p.costPrice);
+	  this.cartVatRefund = this.cartVatRefund + (p.costPrice - (p.costPrice/(1+p.tax/100)))*p.quantity;
+	}
+	
+   }
+
+
 	onChange(product, type, values:any)
 	{
 		let value = values.target.value;
@@ -331,6 +503,19 @@ ionViewWillEnter()
 		this.calculateCart();
 	}
 
+	numberOnlyValidation(event: any) {
+		const pattern = /[0-9.,]/;
+		let inputChar = String.fromCharCode(event.charCode);
 
+		if (!pattern.test(inputChar)) {
+		  // invalid character, prevent input
+		  event.preventDefault();
+		}
+	}
+
+
+
+
+	
 	
 }
