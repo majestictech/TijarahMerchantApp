@@ -20,18 +20,18 @@
       <form method="post">
         <ion-list>
           <ion-item>
-            <ion-label position="stacked">{{ 'INVOICE.selectvendor' | translate }}<span class="asterisk">*</span><br>
+            <ion-label position="stacked">{{ 'INVOICE.selectvendor' | translate }}<span class="asterisk"> *</span><br>
               <ion-searchbar class="select_vendor" searchIcon="undefined" type="text" debounce="500"  placeholder="{{ 'INVOICE.selectvendor' | translate }}"></ion-searchbar></ion-label>
           </ion-item>
     
           <ion-item>
-            <ion-label class="label-font-size" position="floating">{{ 'INVOICE.invoicenumber' | translate }}<span class="asterisk">*</span>
-              <ion-input type="text" required name="invoiceNumber"  (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-input>
+            <ion-label class="label-font-size" position="floating">{{ 'INVOICE.invoicenumber' | translate }}<span class="asterisk"> *</span>
+              <ion-input type="number" required name="invoiceNumber"  (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" [(ngModel)]="invoiceNumber" (ionChange)="checkRequired($event,'invoiceNumber');"></ion-input>
             </ion-label>
           </ion-item>
     
           <ion-item>
-            <ion-label class="label-font-size" position="floating">{{ 'INVOICE.invoicedate' | translate }}<span class="asterisk">*</span>
+            <ion-label class="label-font-size" position="floating">{{ 'INVOICE.invoicedate' | translate }}<span class="asterisk"> *</span>
               <ion-input type="date" required ngModel name="invoiceDate" (ionChange)="checkRequired($event,'invoiceDate')" placeholder="startdate" displayFormat="DDDD MMM D, YYYY" min="2005" max="maxDate"></ion-input>
             </ion-label>
           </ion-item>
@@ -41,6 +41,66 @@
           </ion-item>
         </ion-list>
       </form>
+      <ion-grid class="grid-row">
+        <ion-card class="card">
+        <ion-row>
+          <ion-col><ion-label class="text-color">{{ 'EDITPRODUCT.itemname' | translate }}</ion-label></ion-col>
+          <ion-col style="color: #000; font-weight: bold;">Yak Milk</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label class="text-color">{{ 'EDITPRODUCT.cp' | translate }}</ion-label></ion-col>
+          <ion-col><ion-input class="input-field" (click)="env.tapEvent($event,'click')" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" type="number" (ionInput)="onChange(product,'cp',$event)" name="cp" value="1" min="" (keypress)="numberOnlyValidation($event)"></ion-input></ion-col>
+          
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label class="text-color">{{ 'EDITPRODUCT.quantity' | translate }}</ion-label></ion-col>
+          <ion-col><ion-input class="input-field" (click)="env.tapEvent($event,'click')" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()" (ionInput)="onChange(product,'qty',$event)" name="quantity" type="number" value="20" min="0" (keypress)="numberOnlyValidation($event)"></ion-input></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label class="text-color">{{ 'EDITPRODUCT.expirydate' | translate }}</ion-label></ion-col>
+          <ion-col><ion-input class="input-field" class="input-field"type="date" value="expiryDate" name="expiryDate" (ionInput)="onChange(product,'expiryDate',$event)"  placeholder="Expiry Date" displayFormat="DDDD MMM D, YYYY" min="maxDate" max=""></ion-input></ion-col>
+        </ion-row>
+        </ion-card>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<ion-footer >
+	<ion-list lines="none">
+		<ion-row class="ion-padding-horizontal ion-margin-horizontal plusborderbottom">
+			<ion-col size="6">
+				<p>{{ 'INVOICE.amount' | translate }}</p>
+        <p>{{ 'INVOICE.vatamount' | translate }}</p>
+			</ion-col>
+			<ion-col size="6" class="ion-text-right">
+				<!--<p class="ion-text-right">SAR <span class="plusprimarycolor">{{(cartTotal - cartVat) - (cartTotalRefund - cartVatRefund)| number: '1.2-2'}}</span></p>-->
+				<p class="ion-text-right">SAR <span class="plusprimarycolor">{{(cartTotal - cartVat)| number: '1.2-2'}}</span></p>
+        <p class="ion-text-right">SAR <span class="plusprimarycolor">{{(cartTotal - cartVat)| number: '1.2-2'}}</span></p>
+			</ion-col>
+		</ion-row>
+	  <ion-row class="ion-padding-horizontal ion-margin-horizontal">
+			<ion-col size="6">
+				<p style="margin: 0;">{{ 'INVOICE.totalamount' | translate }}</p>
+			</ion-col>
+			<ion-col size="6" class="ion-text-right">
+				<!--<p class="ion-text-right">SAR <span class="plusprimarycolor">{{cartTotal - cartTotalRefund | number: '1.2-2'}}</span></p>-->
+				<p style="margin: 0;" class="ion-text-right">SAR <span class="plusprimarycolor">240.00</span></p>
+			</ion-col>
+		</ion-row>
+		
+	</ion-list>
+	
+	
+	<ion-row>
+		<ion-col size="6">
+			<ion-button expand="block" class="apply" color="success" (click)="btnStatus = 'Complete'; open_createInvoice(form);">{{ 'INVOICE.createinvoice' | translate }}</ion-button>
+		</ion-col>
+		
+		<ion-col size="6">
+			<ion-button  expand="block" class="apply" (click)="btnStatus = 'Pending'; majEditInvoice(form);"  >{{ 'SETTING.save' | translate }}</ion-button>
+		</ion-col>
+	</ion-row>
+
+
+</ion-footer>

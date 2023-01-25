@@ -35,7 +35,11 @@
 		"yes": "Yes",
 		"no": "No",
 		"cancel": "Cancel",
-		"addproduct": "Add Product"
+		"addproduct": "Add Product",
+		"itemname": "Item Name",
+		"cp": "Cost Price",
+		"quantity": "Quantity",
+		"expirydate": "Expiry Date"
 		
 	},
 
@@ -57,6 +61,7 @@
 		"totalamt": "Total Amount",
 		"totalamountwithvat": "Total Amount with VAT",
 		"vatamount": "VAT Amount",
+		"amount": "Amount",
 		"selecttheitems": "Select the Items",
 		"productsselected": "Products Selected",
 		"next": "Next",
