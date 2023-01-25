@@ -1,30 +1,8 @@
-.editinvoice {
+.viewinvoice {
     margin-left: 10px;
 	color: #006C35;
     font-size: 24px;
 }
-.select_vendor, .product_search {
-	/* --background:var(--ion-color-light-shade, #d7d8da) !important;
-	--border-radius:20px !important;
-	border:none;
-	--placeholder-color:var(--ion-color-dark, #000); */
-	padding: 0;
-}
-.asterisk {
-    color: brown;
-}
-.label-font-size {
-    font-size: 14px;
-}
-
-ion-searchbar::placeholder {
-    font-size: 5px !important;
-}
-
-:host(.item-label-floating) .input-wrapper {
-    flex-direction: row;
-}
-
 .input-field {
     width: 160px;
     height: 25px;
@@ -55,4 +33,10 @@ border-bottom: 1px solid var(--ion-color-plusprimary, #006C35);
 .apply {
     color: #fff;
     font-weight: bold;
+}
+.row-headingplus {
+background: var(--ion-color-plusprimary, #006C35);
+font-size: 14px;
+color: var(--ion-color-plusprimary-contrast, #ffffff);
+padding: 4px 16px;
 }

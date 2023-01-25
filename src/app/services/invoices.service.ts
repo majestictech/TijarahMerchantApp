@@ -30,5 +30,16 @@ export class InvoicesService {
       return this.http.get(this.env.API_URL+'/invoices/'+this.env.APP_STORE_ID+'?type='+type+'&start='+start+'&end='+end+'&page='+page+'&search='+search).pipe(
       map(results => results['results'])
     );
-  }  
+  }
+  
+  vendorList(type,page,start,end,search) {
+    return this.http.get(this.env.API_URL+'/ordervendorlist/'+this.env.APP_STORE_ID+'?type='+type+'&start='+start+'&end='+end+'&page='+page+'&search='+search).pipe(
+	  map(results => results['results'])
+	);
+
+    }
+
+
+
+
 }
