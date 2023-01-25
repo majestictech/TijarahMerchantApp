@@ -36,8 +36,9 @@ export class InvoicesPage implements OnInit {
     searchText: string = '';
 
 
-
-
+	@ViewChild('searchInvoices', { static: false }) searchbar: IonSearchbar;
+	@ViewChild('checkStartDate', { static: false }) checkStartDateInput: IonInput;
+	@ViewChild('checkEndDate', { static: false }) checkEndDateInput: IonInput;
 
   constructor(translate: TranslateService,private http: HttpClient,public env: EnvService,private router: Router,private invoicesService: InvoicesService) {
     this.loadData('firstload', '');

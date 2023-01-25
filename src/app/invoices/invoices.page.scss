@@ -29,8 +29,8 @@ ion-searchbar div.searchbar-input {
 	display:flex !important;	
 }
 .potabs p {
-	padding: 8px 30px;
-	background:var( --ion-color-light-shade, #d7d8da);
+	//padding: 8px 30px;
+	//background:var( --ion-color-light-shade, #d7d8da);
 	margin-left: 0.3%;
 	border-radius: 8px;
     font-size: 14px;
@@ -123,4 +123,13 @@ div.potabs div:nth-child(3).Pending_selected
 	background:var(--ion-color-plusprimary, #006C35);
 	position:relative;
 	color:var(--ion-color-plusprimary-contrast, #ffffff);
+}
+
+.quick_finish {
+	padding-left: 24px;
+	
+}
+
+.poborder {
+	margin-right: 15px;
 }
