@@ -96,3 +96,31 @@ h1, h2, h3, h4, h5, h6 {
 .icon {
 	color: #006C35;
 }
+.potabs
+{
+	display:flex !important;	
+}
+
+
+
+
+.potabs div{
+	padding: 5px 25px;
+	background:var( --ion-color-light-shade, #d7d8da);
+	margin-left: 0.3%;
+	border-radius: 8px;
+	margin:0 2px;
+}
+
+
+.potabs div p{
+    font-size: 14px;
+}
+div.potabs div:first-child.All_selected,
+div.potabs div:nth-child(2).Complete_selected,
+div.potabs div:nth-child(3).Pending_selected
+{
+	background:var(--ion-color-plusprimary, #006C35);
+	position:relative;
+	color:var(--ion-color-plusprimary-contrast, #ffffff);
+}
