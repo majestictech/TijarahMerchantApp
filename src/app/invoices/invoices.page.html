@@ -35,10 +35,6 @@
         </ion-col>
       </ion-row>
 
-      <ion-button style="height: 35px;">{{ 'INVOICE.all' | translate }}</ion-button>
-      <ion-button style="height: 35px;">{{ 'INVOICE.completed' | translate }}</ion-button>
-      <ion-button style="height: 35px;">{{ 'INVOICE.pending' | translate }}</ion-button>
-
       <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
       <ion-row>
         <ion-col size="7" class="verticalalign">	
@@ -77,19 +73,16 @@
         <ng-container *ngIf="selectedTab == 'All'">
 					<div class="poborder">
             <ion-row class="ion-padding-horizontal borderbottom" *ngFor="let purchaseorder of (invoices)">
-              <ion-col size="2"  >
+              <ion-col size="5"  >
                 <p>{{purchaseorder.invoiceDate | date:'dd-MMM-YYYY'}}</p>
+
+                <p>Invoice No.: {{purchaseorder.invoiceNumber}}</p>
               </ion-col>
-              <ion-col size="2" >
-                <p>{{purchaseorder.invoiceNumber}}</p>
-              </ion-col>
-              <ion-col size="2" >
+              <ion-col size="3" >
                 <p>{{purchaseorder.vendorName}}</p>
-              </ion-col>
-              <ion-col size="2" >
                 <p>{{env.languageParseNumbers(purchaseorder.contactNumber)}}</p>
               </ion-col>
-              <ion-col size="2">
+              <ion-col size="3">
                 <p *ngIf="env.APP_LANG == 'en'">{{purchaseorder.status}}</p>
                 <p *ngIf="env.APP_LANG == 'ar'">
                   <span *ngIf="purchaseorder.status == 'Complete'">المنتج</span>
@@ -98,21 +91,14 @@
               </ion-col>
               
               <ng-container *ngIf="purchaseorder.status == 'Complete'">
-                <ion-col size="2">
-                  <ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" [routerLink]="['/', 'invoicedetail', purchaseorder.id]" routerDirection="forward" mode="ios" class="quick_finish">
-                    {{ 'INVOICE.view' | translate }} <ion-icon name="chevron-forward-outline"></ion-icon> 
-                  </ion-button>	
+                <ion-col size="1">
+                  <ion-icon [routerLink]="['/viewinvoice']" name="eye-outline" class="icon"></ion-icon>
                 </ion-col>	
               </ng-container>
               <ng-container *ngIf="purchaseorder.status == 'Pending'">
                 <ion-col size="1">
-    
-                  <ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'"  mode="ios" class="quick_finish" color="primary" [routerLink]="['/', 'editinvoice', purchaseorder.id]" routerDirection="forward">
-                    {{ 'INVOICE.edit' | translate }} <ion-icon name="chevron-forward-outline"></ion-icon> 
-                  </ion-button>	
-                  
-                </ion-col>	
-                	
+                  <ion-icon [routerLink]="['/editinvoice']" name="create-outline" class="icon"></ion-icon>
+                </ion-col>         	
               </ng-container>
             </ion-row>
             <ion-infinite-scroll #IonInfiniteScroll threshold="100px" (ionInfinite)="loadData('paging', $event)">
@@ -122,40 +108,36 @@
         </ng-container>
 
         <ng-container *ngIf="selectedTab == 'Complete'">
-				
+				<ion-row>
 					<ion-col size="12" class="ion-no-padding">							
 						<div class="poborder">
 							<ion-row class="ion-padding-horizontal borderbottom" *ngFor="let purchaseorder of (invoices)">
-								<ion-col size="2">
-									<p>{{purchaseorder.invoiceDate | date:'dd-MMM-YYYY'}}</p>
-								</ion-col>
-								<ion-col size="2" >
-									<p>{{purchaseorder.invoiceNumber}}</p>
+								<ion-col size="5">
+									<p>{{purchaseorder.invoiceDate | date:'dd-MMM-YYYY'}}</p>							
+									<p>Invoice No.: {{purchaseorder.invoiceNumber}}</p>
 								</ion-col>
 								<ion-col size="3" >
 									<p>{{purchaseorder.vendorName}}</p>
-								</ion-col>
-								<ion-col size="2" >
 									<p>{{env.languageParseNumbers(purchaseorder.contactNumber)}}</p>
 								</ion-col>
-								<ion-col size="2">
+								<ion-col size="3">
 									<p>{{purchaseorder.status}}</p>
 								</ion-col>	
-								<ion-col size="1">	
-									<!--
-									<ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" (click)="env.sound()"  expand="block" class="plusedit" [routerLink]="['/', 'invoicedetail', purchaseorder.id]" routerDirection="forward">
-										<img src="../assets/images/open-outline.png" class="edit_btn" slot="end" width="20" />
-									</ion-button>-->	
-									<!--<ion-button mode="ios" class="quick_finish">
-											{{ 'PO.quickfinish' | translate }} <ion-icon name="chevron-forward-outline"></ion-icon> 
-									</ion-button>-->
-									<ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" [routerLink]="['/', 'invoicedetail', purchaseorder.id]" routerDirection="forward" mode="ios" class="quick_finish">
-											{{ 'INVOICE.view' | translate }} <ion-icon name="chevron-forward-outline"></ion-icon> 
-									</ion-button>
-								</ion-col>									
+								
+                  <ng-container *ngIf="purchaseorder.status == 'Complete'">
+                    <ion-col size="1">
+                      <ion-icon [routerLink]="['/viewinvoice']" name="eye-outline" class="icon"></ion-icon>
+                    </ion-col>	
+                  </ng-container>
+                  <ng-container *ngIf="purchaseorder.status == 'Pending'">
+                    <ion-col size="1">
+                      <ion-icon [routerLink]="['/editinvoice']" name="create-outline" class="icon"></ion-icon>     
+                    </ion-col>         	
+                  </ng-container>							
 							</ion-row>
 						</div>
 					</ion-col>
+        </ion-row>
 					<ion-infinite-scroll #IonInfiniteScroll threshold="100px" (ionInfinite)="loadData('paging', $event)">
 						<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
 					</ion-infinite-scroll>
@@ -166,26 +148,21 @@
 						<div class="poborder">
 							
 								<ion-row class="ion-padding-horizontal borderbottom" *ngFor="let purchaseorder of (invoices)">
-									<ion-col size="2" >
+									<ion-col size="5" >
 										<p>{{purchaseorder.invoiceDate | date:'dd-MMM-YYYY'}}</p>
-									</ion-col>
-									<ion-col size="2" >
-										<p>{{purchaseorder.invoiceNumber}}</p>
+										<p>Invoice No.: {{purchaseorder.invoiceNumber}}</p>
 									</ion-col>
 									<ion-col size="3" >
 										<p>{{purchaseorder.vendorName}}</p>
-									</ion-col>
-									<ion-col size="2" >
 										<p>{{env.languageParseNumbers(purchaseorder.contactNumber)}}</p>
 									</ion-col>
-									<ion-col size="2">
+									<ion-col size="3">
 										<p *ngIf="env.APP_LANG == 'en'">{{purchaseorder.status}}</p>
 										<p *ngIf="env.APP_LANG == 'ar'">
 											<span purchaseorder.status = 'Pending'>معلقة</span>
 										</p>
-									
 									</ion-col>	
-									<ion-col size="1">
+								
 										<!--
 										<ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" (click)="env.sound()"  expand="block" class="plusedit" [routerLink]="['/', 'editinvoice', purchaseorder.id]" routerDirection="forward">
 											<img src="../assets/images/create.png" class="edit_btn" slot="end" width="20" />
@@ -193,12 +170,19 @@
 										<!-- <ion-button mode="ios" class="quick_finish">
 											{{ 'PO.quickfinish' | translate }} <ion-icon name="chevron-forward-outline"></ion-icon> 
 										</ion-button>-->
-										<ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" mode="ios" class="quick_finish" color="primary" [routerLink]="['/', 'editinvoice', purchaseorder.id]" routerDirection="forward">
-											{{ 'INVOICE.edit' | translate }} <ion-icon name="chevron-forward-outline"></ion-icon> 
-										</ion-button>
-									</ion-col>							
-							</ion-row>						
-							
+										<!-- <ion-button *ngIf = "this.env.NETWORK_STATUS == 'Online'" mode="ios" class="quick_finish" color="primary" [routerLink]="['/', 'editinvoice', purchaseorder.id]" routerDirection="forward">
+											{{ 'INVOICE.edit' | translate }} </ion-button>--> 
+                      <ng-container *ngIf="purchaseorder.status == 'Complete'">
+                        <ion-col size="1">
+                          <ion-icon [routerLink]="['/viewinvoice']" name="eye-outline" class="icon"></ion-icon>
+                        </ion-col>	
+                      </ng-container>
+                      <ng-container *ngIf="purchaseorder.status == 'Pending'">
+                        <ion-col size="1">
+                          <ion-icon [routerLink]="['/editinvoice']" name="create-outline" class="icon"></ion-icon>      
+                        </ion-col>         	
+                      </ng-container>	
+                </ion-row>						
 						</div>
 					</ion-col>
           <ion-infinite-scroll #IonInfiniteScroll threshold="100px" (ionInfinite)="loadData('paging', $event)">
@@ -250,9 +234,10 @@
       </ion-list> -->
     </ion-card-content>
   </ion-card>
+
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
   <ion-row class="row-headingplus">
     <ion-col size="4" *ngIf="env.APP_LANG == 'en'"><b>{{ 'INVOICE.totaltaxablevalue' | translate }}</b><span><br>SAR {{env.languageParseNumbers(totalSumAmount - totalVat | number: '1.2-2')}}</span></ion-col>
     <ion-col size="4" *ngIf="env.APP_LANG == 'ar'"><b>{{ 'INVOICE.totaltaxablevalue' | translate }}</b><span><br>SAR {{env.languageParseNumbers(totalSumAmount - totalVat | number: '1.2-2')}}</span></ion-col>
@@ -263,7 +248,7 @@
     <ion-col size="4" *ngIf="env.APP_LANG == 'en'" class="ion-text-right"><b>{{ 'INVOICE.totalamount' | translate }}</b><span><br> {{env.languageParseNumbers(totalSumAmount | number: '1.2-2')}}</span></ion-col>
     <ion-col size="4" *ngIf="env.APP_LANG == 'ar'" class="ion-text-left"><b>{{ 'INVOICE.totalamount' | translate }}</b><span><br> {{env.languageParseNumbers(totalSumAmount | number: '1.2-2')}}</span></ion-col>
   </ion-row>
-</ion-footer>
+</ion-footer> -->
 
   
     
