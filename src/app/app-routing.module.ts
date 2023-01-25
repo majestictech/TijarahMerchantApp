@@ -118,13 +118,22 @@ const routes: Routes = [
 	  name: 'vendors'
     }
 
-  },  {
+  },
+  {
     path: 'addvendor',
-    loadChildren: () => import('./addvendor/addvendor.module').then( m => m.AddvendorPageModule)
+    loadChildren: () => import('./addvendor/addvendor.module').then( m => m.AddvendorPageModule),
+    data: {
+      preload: true,
+	  name: 'addvendor'
+    }
   },
   {
     path: 'editvendor',
-    loadChildren: () => import('./editvendor/editvendor.module').then( m => m.EditvendorPageModule)
+    loadChildren: () => import('./editvendor/editvendor.module').then( m => m.EditvendorPageModule),
+    data: {
+      preload: true,
+	  name: 'editvendor'
+    }
   }
 
 

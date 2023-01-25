@@ -1,9 +1,45 @@
-<ion-header>
+<ion-header [translucent]="true"> 
   <ion-toolbar>
-    <ion-title>editvendor</ion-title>
+    <ion-row>
+      <!-- <ion-button slot="start">
+        <ion-back-button [routerLink]="['/tab4']">back</ion-back-button>
+      </ion-button> -->
+      <ion-col size="2">
+        <ion-icon [routerLink]="['/vendorlist']" name="arrow-back-outline"></ion-icon>
+      </ion-col>	
+            
+      <ion-col size="8" class="ion-text-center" routerDirection="forward">
+        			<h4 class="editvendor">{{ 'VENDOR.editvendor' | translate }}</h4>
+      </ion-col>	
+      <ion-col size="2" class="ion-text-center">
+      </ion-col>	
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-header style="padding: 0;">
+      <ion-card-title class="edit-vendor-account">{{ 'VENDOR.editvendoraccount' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <form #form="ngForm" method="post">
+          <ion-item>
+            <ion-label class="labels" position="stacked">{{ 'VENDOR.vendorname' | translate }}<span class="asterisk">*</span></ion-label>
+            <ion-input type="text" required name="vendorName" value="Test Vendor"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="labels" position="stacked">{{ 'LOGIN.contactnumber' | translate }}<span class="asterisk">*</span></ion-label>
+            <ion-input type="text" name="contactNumber" value="+1-254-384-2365"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="labels" position="stacked">{{ 'VENDOR.vatnumber' | translate }}<span class="asterisk">*</span></ion-label>
+            <ion-input type="text" value="123456987123255" name="VatNumber"></ion-input>
+          </ion-item>
+        </form>
+        <ion-button expand="block" mode="ios" class="save">{{ 'INVOICE.save' | translate }}</ion-button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

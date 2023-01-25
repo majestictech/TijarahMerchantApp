@@ -8,14 +8,12 @@
       </ion-col>	
             
       <ion-col size="8" class="ion-text-center" routerDirection="forward">
-        			<h4 class="invoice">Invoices</h4>
+        			<h4 class="invoice">{{ 'INVOICE.invoices' | translate }}</h4>
       </ion-col>	
-      <ion-col size="2" class="ion-text-center">
-        
-          <ion-fab-button class="add-invoice-btn">
+      <ion-col size="2" style="text-align: -webkit-right;">
+        <ion-fab-button class="add-invoice-btn">
             <ion-icon name="add" [routerLink]="['/addinvoice']"></ion-icon>
           </ion-fab-button>
-        
       </ion-col>	
       
     </ion-row>
@@ -36,9 +34,11 @@
           <ion-input class="customdate" type="date" name="endDate" placeholder="enddate"></ion-input>
         </ion-col>
       </ion-row>
-     <!--  <ion-button style="height: 35px;">All</ion-button>
-      <ion-button style="height: 35px;">Completed</ion-button>
-      <ion-button style="height: 35px;">Pending</ion-button> -->
+
+      <ion-button style="height: 35px;">{{ 'INVOICE.all' | translate }}</ion-button>
+      <ion-button style="height: 35px;">{{ 'INVOICE.completed' | translate }}</ion-button>
+      <ion-button style="height: 35px;">{{ 'INVOICE.pending' | translate }}</ion-button>
+
       <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
       <ion-row>
         <ion-col size="7" class="verticalalign">	
@@ -251,6 +251,7 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+
 <ion-footer>
   <ion-row class="row-headingplus">
     <ion-col size="4" *ngIf="env.APP_LANG == 'en'"><b>{{ 'INVOICE.totaltaxablevalue' | translate }}</b><span><br>SAR {{env.languageParseNumbers(totalSumAmount - totalVat | number: '1.2-2')}}</span></ion-col>
@@ -263,6 +264,7 @@
     <ion-col size="4" *ngIf="env.APP_LANG == 'ar'" class="ion-text-left"><b>{{ 'INVOICE.totalamount' | translate }}</b><span><br> {{env.languageParseNumbers(totalSumAmount | number: '1.2-2')}}</span></ion-col>
   </ion-row>
 </ion-footer>
+
   
     
   
