@@ -20,7 +20,7 @@ export class EnvService {
   //API_URL = 'https://majestictechnosoft.com/retailb2b/api';
   API_URL = 'http://192.168.1.22/retailb2b/api';
 
-  APP_DEBUG = false;
+  APP_DEBUG = true;
   inputTap = 0;
 
 
@@ -72,4 +72,116 @@ export class EnvService {
       this.loadingController.dismiss();
     }
   
+    languageParseContactNumber(arnum) {
+      if(this.APP_LANG == 'en') {
+        return arnum;
+      }
+      else if(this.APP_LANG == 'ar') {
+        arnum = Intl.NumberFormat('ar-EG').format(arnum)
+        for (var i = 0; i < arnum.length; i++) {
+          if(arnum.charAt(i) == '٬'){
+            arnum = arnum.replace( '٬', '' );	
+            }
+          }
+        console.log(arnum);	
+        return arnum;
+      }
+      }
+      convertNumberAr2En(arnum){
+        if(this.APP_LANG == 'ar') {
+          for (var i = 0; i < arnum.length; i++) {
+            console.log(arnum.charAt(i));
+      
+            if(arnum.charAt(i) == '٬'){
+             arnum =arnum.replace( /٬/g, '' );
+            }
+            
+            if(arnum.charAt(i) == '٠'){
+             arnum =arnum.replace( /٠/g, '0' );
+            }
+      
+            if(arnum.charAt(i) == '١'){
+             arnum =arnum.replace( /١/g, '1' )  
+            }
+      
+            if(arnum.charAt(i) == '٢'){
+             arnum =arnum.replace( /٢/g, '2' )	
+            }
+      
+            if(arnum.charAt(i) == '٣'){
+             arnum =arnum.replace( /٣/g, '3' )	
+            }
+      
+            if(arnum.charAt(i) == '٤'){
+             arnum =arnum.replace( /٤/g, '4' )	
+            }
+      
+            if(arnum.charAt(i) == '٥'){
+             arnum =arnum.replace( /٥/g, '5' )	
+            }
+      
+            if(arnum.charAt(i) == '٦'){
+             arnum =arnum.replace( /٦/g, '6' )	
+            }
+      
+            if(arnum.charAt(i) == '٧'){
+             arnum =arnum.replace( /٧/g, '7' )	
+            }
+      
+            if(arnum.charAt(i) == '٨'){
+             arnum =arnum.replace( /٨/g, '8' )	
+            }
+      
+            if(arnum.charAt(i) == '٩'){
+             arnum =arnum.replace( /٩/g, '9' )	
+            }	  	  
+          }
+        }
+        
+        return arnum;
+        } 
+
+
+        numberOnlyValidation(event: any, type='phone', limit=0) 
+        {
+        let pattern = /[0-9]/;
+        let maxLength = 8; // One less than the desired limit.
+        
+        if(type == 'phone') {
+          pattern = /[0-9]/;
+        }
+        else if(type == 'price') {
+          //pattern = /[0-9.,]/;
+          //pattern = /^[0-9]*(\.[0-9]{0,2})?$/;
+          pattern = /^[0-9]*(\.[0-9]{0,2})?$/;
+        }
+        else if(type == 'vat') {
+          pattern = /^[0-9]*(\.[0-9]{0,2})?$/;
+          maxLength = 14; // One less than the desired limit.
+        }
+        else if(type == 'qty') {
+          pattern = /^[0-9]*(\.[0-9]{0,2})?$/;
+          if(limit > 0)
+            maxLength = limit;
+        }
+        else if(type == 'name') {
+          pattern = /[a-zA-Z]+/g;
+        }
+        
+        let inputChar = String.fromCharCode(event.charCode);
+        
+        //this.env.alertCheck(inputChar.length);
+        console.log('Length');
+        console.log(event.target.value);
+        console.log(event.target.value.length);
+        
+        if (!pattern.test(inputChar) || event.target.value.length > maxLength) {
+          // invalid character, prevent input
+          event.preventDefault();
+        }
+        }
+
+
+
+
 }

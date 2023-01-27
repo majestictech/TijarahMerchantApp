@@ -24,21 +24,22 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <form #form="ngForm" method="post">
+        <form #form="ngForm"  (ngSubmit)="majEditVendor(form)" method="post">
           <ion-item>
             <ion-label class="labels" position="stacked">{{ 'VENDOR.vendorname' | translate }}<span class="asterisk">*</span></ion-label>
-            <ion-input type="text" required name="vendorName" value="Test Vendor"></ion-input>
+            <ion-input type="text" required [(ngModel)]="vendorName" name="vendorName" (ionInput)="checkRequired($event,'vendorName')" value="{{vendorName}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label class="labels" position="stacked">{{ 'LOGIN.contactnumber' | translate }}<span class="asterisk">*</span></ion-label>
-            <ion-input type="text" name="contactNumber" value="+1-254-384-2365"></ion-input>
+            <ion-input type="text" [(ngModel)]="contactNumber" (keypress)="env.numberOnlyValidation($event, 'price')" name="contactNumber" (ionInput)="checkRequired($event,'contactNumber')" value="{{contactNumber}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label class="labels" position="stacked">{{ 'VENDOR.vatnumber' | translate }}<span class="asterisk">*</span></ion-label>
-            <ion-input type="text" value="123456987123255" name="VatNumber"></ion-input>
+            <ion-input type="text" value="{{VatNumber}}"  [(ngModel)]="VatNumber" name="VatNumber" (ionInput)="checkRequired($event,'VatNumber')" (keypress)="env.numberOnlyValidation($event,'vat')"></ion-input>
           </ion-item>
         </form>
-        <ion-button expand="block" mode="ios" class="save">{{ 'INVOICE.save' | translate }}</ion-button>
+        <ion-button *ngIf="requiredFields" expand="block" mode="ios" class="save" (click)="majEditVendor(form);">{{ 'INVOICE.save' | translate }}</ion-button>
+       <ion-button *ngIf="!requiredFields" expand="block" mode="ios" class="save" disabled>{{ 'CUSTOMER.save' | translate }}</ion-button>
       </ion-list>
     </ion-card-content>
   </ion-card>
