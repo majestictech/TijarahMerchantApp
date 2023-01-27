@@ -39,7 +39,10 @@ export class InvoicesService {
 
     }
 
-
-
-
+    editDetailVendor(id) {
+      return this.http.get(this.env.API_URL+'/editvendor/'+id).pipe(
+      map(results => results['results'])
+    );
+   }
+   
 }
