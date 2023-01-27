@@ -58,8 +58,10 @@
           <ion-list>
             <form #form="ngForm" (ngSubmit)="majCreateVendor(form)" method="post">
               <ion-item>
+
                 <ion-label class="labels" position="stacked">{{ 'VENDOR.vendorsname' | translate }}<span class="asterisk">*</span></ion-label>
                 <ion-input type="text" required [(ngModel)]="vendorName" name="vendorName" (ionInput)="checkRequired($event,'vendorName')"></ion-input>
+
               </ion-item>
               <ion-item>
                 <ion-label class="labels" position="stacked">{{ 'LOGIN.contactnumber' | translate }}<span class="asterisk">*</span></ion-label>
