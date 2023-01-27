@@ -37,6 +37,37 @@ export class InvoicesService {
 	  map(results => results['results'])
 	);
 
+    
+    
+    
+    }
+    orderVendorList(type,page,start,end) {
+      return this.http.get(this.env.API_URL+'/ordervendors/'+this.env.APP_STORE_ID+'?type='+type+'&start='+start+'&end='+end+'&page='+page).pipe(
+      map(results => results['results'])
+    );
+    
+    }
+    
+   
+    
+    
+    editDetails(id) {
+      return this.http.get(this.env.API_URL+'/editinvoice/'+id).pipe(
+      map(results => results['results'])
+    );
+    
+    }
+    editDetailVendor(id) {
+      return this.http.get(this.env.API_URL+'/editvendor/'+id).pipe(
+      map(results => results['results'])
+    );
+    
+    }
+    invoiceDetails(id) {
+      return this.http.get(this.env.API_URL+'/invoicedetail/'+id).pipe(
+      map(results => results['results'])
+    );
+    
     }
 
 

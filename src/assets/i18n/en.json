@@ -88,13 +88,15 @@
 
 	"VENDOR": {
 		"addvendor": "Add Vendor", 
+		"addvendoraccount":"Add Vendor Account",
 		"editvendoraccount": "Edit Vendor Account", 
 		"editvendor": "Edit Vendor", 
 		"vendorlist": "Vendor List",
 		"vendorname": "Vendor Name",
 		"vatnumber": "VAT Number",
 		"vandorsname": "Vandors Name",
-		"searchbyvendorname": "Search By Vandor Name"
+		"searchbyvendorname": "Search By Vandor Name",
+		"vendors":"Vendors"
 		
 	},
 
