@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { EnvService } from '../services/env.service';
 import { HttpClient  } from '@angular/common/http';
 import { InvoicesService } from '../services/invoices.service';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 @Component({
   selector: 'app-editvendor',
   templateUrl: './editvendor.page.html',
@@ -18,31 +18,23 @@ export class EditvendorPage implements OnInit {
   VatNumber: string = '';
   requiredFields: boolean = false;
 
-
   constructor(private http: HttpClient, public env: EnvService,private router: Router,private invoicesService: InvoicesService,private route: ActivatedRoute) {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.vendordata = this.invoicesService.editDetailVendor(this.id);
-    this.vendordata.subscribe(res => console.log(res));
-    this.vendordata.subscribe(res => {
-      this.vendorName = res.vendorName;
-      this.contactNumber = env.languageParseContactNumber(res.contactNumber);
-      this.VatNumber = env.languageParseNumbers(res.VatNumber);
-      this.env.alertCheck(JSON.stringify(res));
-    });
-
-  
-   }
-
-  ngOnInit() {
-    this.env.alertCheck(this.vendorName);
+	this.id = this.route.snapshot.paramMap.get('id');
+	this.vendordata = this.invoicesService.editDetailVendor(this.id);
+	this.vendordata.subscribe(res => console.log(res));
+	this.vendordata.subscribe(res => {
+		this.vendorName = res.vendorName;
+		this.contactNumber = env.languageParseContactNumber(res.contactNumber);
+		this.VatNumber = env.languageParseNumbers(res.VatNumber);
+	});
   }
 
+  ngOnInit() {
+  }
   cancel()
   {
 	this.router.navigate(['/vendorlist']);
   }
-
-
   checkRequired(ev: any, type) 
   {
 	
@@ -61,7 +53,6 @@ export class EditvendorPage implements OnInit {
 	else
 		this.requiredFields = false;
   }
-
   async majEditVendor(form: NgForm){
 	//this.env.sound();
 	
@@ -81,4 +72,5 @@ export class EditvendorPage implements OnInit {
 		}
 	})
 	}
+
 }
