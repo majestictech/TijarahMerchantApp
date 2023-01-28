@@ -53,7 +53,27 @@ export class EnvService {
         ev.target.select();
       }
       }
-
+      currentDate() {
+        let today = new Date();
+        
+        // For AST TimeZone
+        let utcTimeDifference = today.getTimezoneOffset();
+        // Above will give difference like -120 means 120 minutes or 2 hour so it is GMT + 2 hours
+        // -330 means GMT + 5:30
+        
+        // UTC is in negative so we are adding 300 for AST as ast is GMT + 3
+        utcTimeDifference = utcTimeDifference + 180;
+        
+        // we are adding as above value is in negative
+        today.setMinutes( today.getMinutes() + utcTimeDifference );
+        // For AST TimeZone
+        
+        let current_date = today.getFullYear()+'-'+this.number2digits(today.getMonth()+1)+'-'+this.number2digits(today.getDate());
+        //let time = this.number2digits(today.getHours()) + ":" + this.number2digits(today.getMinutes()) + ":" + this.number2digits(today.getSeconds());
+        //let current_datetime = date+' '+time;
+        
+        return current_date;
+      }
 
  blurEvent(ev: any, msg) {
 	  this.inputTap = 0;
@@ -180,7 +200,11 @@ export class EnvService {
           event.preventDefault();
         }
         }
-
+        number2digits(num)
+        {
+          let numFinal = (num < 10 ? '0' : '') + num;
+          return numFinal;
+        }
 
 
 

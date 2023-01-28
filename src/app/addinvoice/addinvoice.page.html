@@ -11,8 +11,8 @@
 
       <ion-col size="8" class="ion-text-center" routerDirection="forward">
 
-        			<h4 class="addinvoice">{{ 'INVOICE.addinvoices' | translate }}</h4>
-      </ion-col>	
+        <h4 class="addinvoice">{{ 'INVOICE.addinvoices' | translate }}</h4>
+      </ion-col>
 
       <ion-col size="2" class="ion-text-center">
       </ion-col>
@@ -40,12 +40,12 @@
        <ion-card-subtitle>Card Subtitle</ion-card-subtitle> 
     </ion-card-header> -->
     <ion-card-content>
-      <form method="post">
+      <form method="post" (ngSubmit)="btnStatus = 'save';" method="post">
         <ion-list>
 
           <ion-item lines="none" *ngIf="assignedVendor == 'none'">
             <ion-label position="stacked">selectvendor <span class="asterisk">*</span><br>
-              <ion-searchbar class="select_vendor" searchIcon="undefined" type="text" debounce="500"
+              <ion-searchbar #autofocus class="select_vendor" searchIcon="undefined" type="text" debounce="500"
                 placeholder="Select Vendor" (ionChange)="getVendors($event)" (ionFocus)="checkFocus()"
                 (ionBlur)="checkBlur()"></ion-searchbar></ion-label>
 
@@ -157,16 +157,10 @@
                     (ionBlur)="checkBlur()"></ion-input></span>
               </ion-col>
               <ion-col size="2" class="ion-text-center costinput">
-                <span><ion-input type="number" value="{{p.quantity}}" (ionFocus)="env.tapEvent($event,'focus')"
-                    (click)="env.tapEvent($event,'click')" (ionBlur)="env.blurEvent($event,'ionBlur')"
-                    (ionInput)="onChange(p,'qty',$event)" name="quantity" min="0"
-                    (keypress)="numberOnlyValidation($event)" (ionFocus)="checkFocus()"
-                    (ionBlur)="checkBlur()"></ion-input></span>
+                <span><ion-input type="number" value="{{p.quantity}}" (ionFocus)="env.tapEvent($event,'focus')" (click)="env.tapEvent($event,'click')" (ionBlur)="env.blurEvent($event,'ionBlur')" (ionInput)="onChange(p,'qty',$event)" name="quantity" min="0" (keypress)="numberOnlyValidation($event)" (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-input></span>
               </ion-col>
               <ion-col size="2" class="ion-text-center costinput">
-                <span><ion-input type="date" value="" ngModel name="expiryDate"
-                    (ionInput)="onChange(p,'expiryDate',$event)" placeholder="Expiry Date"
-                    displayFormat="DDDD MMM D, YYYY" min="{{maxDate}}" max=""></ion-input></span>
+                <span><ion-input type="date" value=""  ngModel name="expiryDate" (ionInput)="onChange(p,'expiryDate',$event)"  placeholder="Expiry Date" displayFormat="DDDD MMM D, YYYY" min="{{maxDate}}" max=""></ion-input></span>
               </ion-col>
               <ion-col size="2" class="ion-text-right">
                 <span class="primarycolor">{{p.costPrice * p.quantity | number: '1.2-2'}}</span>
@@ -188,37 +182,34 @@
 <ng-container *ngIf="selectedTab == 'Return'">
   <ion-item lines="none">
     <ion-searchbar searchIcon="" class="product_search" type="text" debounce="500" (ionChange)="getItemsRefund($event)"
-      [(ngModel)]="searchTextRefund" name="searchTextRefund" placeholder="Products"
-      (ionFocus)="checkFocus()" (ionBlur)="checkBlur()"></ion-searchbar>
+      [(ngModel)]="searchTextRefund" name="searchTextRefund" placeholder="Products" (ionFocus)="checkFocus()"
+      (ionBlur)="checkBlur()"></ion-searchbar>
 
   </ion-item>
   <div *ngIf="isItemAvailableRefund">
-    <ng-container *ngIf="itemsrefund.length!=0">
+    <ng-container *ngIf="itemsrefund.length!=0">	
       <ion-item class="productlist" *ngFor="let itemrefund of (itemsrefund)| slice:0:5; let i=index">
-        <ion-row class="searchrow">
-          <ion-col size="2" class="imagealign">
-            <img src="" />
-          </ion-col>
-
-          <ion-col class="" size="6">
-            <p class="displaytext">{{itemrefund.name}}<small>({{itemrefund.barCode}})</small></p>
-            SAR <span class="primarycolor" *ngIf="env.APP_LANG == 'en'">{{itemrefund.sellingPrice | number:
-              '1.2-2'}}</span>
-            <span class="primarycolor" *ngIf="env.APP_LANG == 'ar'">{{env.languageParseNumbers(itemrefund.sellingPrice |
-              number: '1.2-2')}}</span>
-            | <span class="primarycolor">{{itemrefund.inventory}}</span> in Stock
+      <ion-row class="searchrow">
+        <ion-col size="2" class="imagealign">
+          <img src="" />
+        </ion-col>
+        
+         <ion-col class="" size="6">
+          <p class="displaytext">{{itemrefund.name}}<small>({{itemrefund.barCode}})</small></p>
+          SAR <span class="primarycolor" *ngIf = "env.APP_LANG == 'en'">{{itemrefund.sellingPrice | number: '1.2-2'}}</span> 
+          <span class="primarycolor" *ngIf = "env.APP_LANG == 'ar'">{{env.languageParseNumbers(itemrefund.sellingPrice | number: '1.2-2')}}</span>
+          | <span class="primarycolor">{{itemrefund.inventory}}</span> in Stock
           </ion-col>
           <ion-col size="4">
-            <ion-button (click)="addToCartRefund(itemrefund)" class="btnadd" expand="block">Add</ion-button>
+          <ion-button (click)="addToCartRefund(itemrefund)" class="btnadd" expand="block">{{ 'INVOICE.add' | translate }}</ion-button>
           </ion-col>
-        </ion-row>
+      </ion-row>
       </ion-item>
     </ng-container>
     <ng-container *ngIf="items.length==0">
-      <ion-list class="ion-text-center">No Product found<br>
-        <ion-button size="small" color="medium" [routerLink]="['/addproduct']" routerDirection="forward"><img
-            src="../assets/images/bag-add-outline.png" width="22" slot="start" />Add Inventory </ion-button>
-
+      <ion-list class="ion-text-center">{{ 'CASHIER.noproductfound' | translate }}<br>
+      <ion-button size="small" color="medium" [routerLink]="['/addproduct']" routerDirection="forward"><img src="../assets/images/bag-add-outline.png" width="22" slot="start" />{{ 'CASHIER.addinventory' | translate }} </ion-button>
+      
       </ion-list>
     </ng-container>
   </div>
@@ -244,27 +235,21 @@
       <!--<ion-col size="2">
           <span>1</span>
         </ion-col>-->
-      <ion-col size="4">
-        <span>{{p.name}}</span>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center costinput">
-        <span class="primarycolor"><ion-input (ionFocus)="env.tapEvent($event,'focus')"
-            (click)="env.tapEvent($event,'click')" (ionBlur)="env.blurEvent($event,'ionBlur')" type="number"
-            value="{{p.sellingPrice}}" (ionInput)="onChangeRefund(p,'cp',$event)" name="cp" min="0"
-            (keypress)="numberOnlyValidation($event)"></ion-input></span>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center costinput">
-        <span><ion-input type="number" value="{{p.quantity}}" (ionFocus)="env.tapEvent($event,'focus')"
-            (click)="env.tapEvent($event,'click')" (ionBlur)="env.blurEvent($event,'ionBlur')"
-            (ionInput)="onChangeRefund(p,'qty',$event)" name="quantity" min="0"
-            (keypress)="numberOnlyValidation($event)"></ion-input></span>
-      </ion-col>
-      <ion-col size="3" class="ion-text-right">
-        <span class="primarycolor">{{p.costPrice * p.quantity | number: '1.2-2'}}</span>
-      </ion-col>
-      <ion-col size="1" class="ion-text-center" (click)="deleteCartItemRefund(p)">
-        <img src="../assets/images/trash-outline.png" width="22" />
-      </ion-col>
+        <ion-col size="4">
+          <span>{{p.name}}</span>
+        </ion-col>
+        <ion-col size="2" class="ion-text-center costinput" >
+          <span class="primarycolor"><ion-input  (ionFocus)="env.tapEvent($event,'focus')" (click)="env.tapEvent($event,'click')" (ionBlur)="env.blurEvent($event,'ionBlur')" type="number" value="{{p.sellingPrice}}" (ionInput)="onChangeRefund(p,'cp',$event)" name="cp" min="0" (keypress)="numberOnlyValidation($event)"></ion-input></span>
+        </ion-col>
+        <ion-col size="2" class="ion-text-center costinput">
+          <span><ion-input type="number" value="{{p.quantity}}" (ionFocus)="env.tapEvent($event,'focus')" (click)="env.tapEvent($event,'click')" (ionBlur)="env.blurEvent($event,'ionBlur')" (ionInput)="onChangeRefund(p,'qty',$event)" name="quantity" min="0" (keypress)="numberOnlyValidation($event)"></ion-input></span>
+        </ion-col>
+        <ion-col size="3" class="ion-text-right">
+          <span class="primarycolor">{{p.costPrice * p.quantity | number: '1.2-2'}}</span>							
+        </ion-col>
+        <ion-col size="1" class="ion-text-center" (click)="deleteCartItemRefund(p)">
+          <img src="../assets/images/trash-outline.png" width="22" />
+        </ion-col>
     </ion-row>
   </div>
 </ng-container>
@@ -274,15 +259,14 @@
 
 
 
-<ion-footer class="bottom-footer">
+<ion-footer  *ngIf="!isShown">
   <ion-list lines="none">
     <ion-row class="ion-padding-horizontal">
       <ion-col size="6">
-        <p class="footer-font">Amount</p>
+        <p>{{ 'DAILYSALESREPORT.amount' | translate }}</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">{{(cartTotal - cartVat) -
-            (cartTotalRefund - cartVatRefund)| number: '1.2-2'}}</span></p>
+        <p class="ion-text-right">SAR <span class="plusprimarycolor">{{(cartTotal - cartVat) - (cartTotalRefund - cartVatRefund)| number: '1.2-2'}}</span></p>
       </ion-col>
     </ion-row>
     <!--
@@ -297,30 +281,29 @@
     -->
     <ion-row class="ion-padding-horizontal borderbottom">
       <ion-col size="6">
-        <p class="footer-font">{{ 'INVOICE.vatamount' | translate }}</p>
+        <p>{{ 'INVOICE.vatamount' | translate }}</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">{{cartVat - cartVatRefund | number: '1.2-2'}}</span></p>
+        <p class="ion-text-right">SAR <span class="plusprimarycolor">{{cartVat - cartVatRefund | number: '1.2-2'}}</span></p>
       </ion-col>
     </ion-row>
     <ion-row class="ion-padding-horizontal">
       <ion-col size="6">
-        <p class="footer-font">{{ 'INVOICE.totalamountwithvat' | translate }}</p>
+        <p>{{ 'INVOICE.totalamount' | translate }}</p>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        <p class="ion-text-right footer-font">SAR <span class="plusprimarycolor">{{cartTotal - cartTotalRefund | number: '1.2-2'}}</span></p>
+        <p class="ion-text-right">SAR <span class="plusprimarycolor">{{cartTotal - cartTotalRefund | number: '1.2-2'}}</span></p>
       </ion-col>
     </ion-row>
   </ion-list>
   <ion-row>
     <ion-col size="6">
-
-      <ion-button expand="block" class="apply" color="" disabled *ngIf="requiredFields && invoiceSaveBtnenabled == true">Create Invoice</ion-button>
-      <ion-button expand="block" class="apply" color="success"  *ngIf="!requiredFields ||invoiceSaveBtnenabled == false" disabled>Create Invoice</ion-button>
-
+      <ion-button expand="block" class="apply" color="success " *ngIf="requiredFields && invoiceSaveBtnenabled == true" (click)="btnStatus = 'Complete';">{{ 'INVOICE.createinvoice' | translate }}</ion-button>
+      <ion-button expand="block" class="apply" color="success"  *ngIf="!requiredFields ||invoiceSaveBtnenabled == false" disabled>{{ 'INVOICE.createinvoice' | translate }}</ion-button>
     </ion-col>
     <ion-col size="6">
-      <ion-button expand="block" class="apply" disabled>Save</ion-button>
+      <ion-button expand="block" class="apply" *ngIf="requiredFields && invoiceSaveBtnenabled == true " (click)="btnStatus = 'Pending';">{{ 'CUSTOMER.save' | translate }}</ion-button>
+      <ion-button expand="block" class="apply"  *ngIf="!requiredFields || invoiceSaveBtnenabled == false" disabled >{{ 'CUSTOMER.save' | translate }}</ion-button>
     </ion-col>
   </ion-row>
 </ion-footer>
