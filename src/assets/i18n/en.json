@@ -24,7 +24,7 @@
 		"category": "Category",
 		"subcategory": "Sub-Category",
 		"sellingprice": "selling Price",
-		"codepricewithvat": "Code Price With Vat",
+		"costpricewithvat": "Cost Price With Vat",
 		"nearexpirynotification": "Near Expiry Notification",
 		"vat": "VAT",
 		"printbarcode": "Print Barcode",
@@ -35,12 +35,17 @@
 		"yes": "Yes",
 		"no": "No",
 		"cancel": "Cancel",
-		"addproduct": "Add Product"
+		"addproduct": "Add Product",
+		"itemname": "Item Name",
+		"cp": "Cost Price",
+		"quantity": "Quantity",
+		"expirydate": "Expiry Date"
 		
 	},
 
 	"INVOICE": {
 		"addinvoices": "Add Invoice",
+		"invoices": "Invoices",
 		"editinvoices": "Edit Invoices",
 		"quickinvoice": "Quick Invoice",
 		"createinvoice": "Create Invoice",
@@ -54,8 +59,9 @@
 		"product": "Product",
 		"searchbyinvoiceno": "Search by Invoice Number and Supplier Name",
 		"totalamt": "Total Amount",
-		"totalamount": "Total Amount with VAT",
+		"totalamountwithvat": "Total Amount with VAT",
 		"vatamount": "VAT Amount",
+		"amount": "Amount",
 		"selecttheitems": "Select the Items",
 		"productsselected": "Products Selected",
 		"next": "Next",
@@ -69,7 +75,10 @@
 		"edit": "Edit",
 		"update": "Update",
 		"totaltaxablevalue":"Total Amount Without VAT",
+		"totalpaidtax":"Total Paid Tax",
+		"totalamount":"Total Amount",
 		"instock":"In Stock"
+		
 	},
 
 	"ADDITEM": {
@@ -79,15 +88,25 @@
 
 	"VENDOR": {
 		"addvendor": "Add Vendor", 
+		"addvendoraccount":"Add Vendor Account",
+		"editvendoraccount": "Edit Vendor Account", 
+		"editvendor": "Edit Vendor", 
 		"vendorlist": "Vendor List",
+		"vendorname": "Vendor Name",
 		"vatnumber": "VAT Number",
 		"vandorsname": "Vandors Name",
-		"searchbyvendorname": "Search By Vandor Name"
+		"searchbyvendorname": "Search By Vandor Name",
+		"vendors":"Vendors"
 		
 	},
 
 	"ADDINVOICE": {
 		"invoicenumber": "Invoice Number"
+	},
+
+	"CREATEINVOICE": {
+		
 	}
+	
 
 }

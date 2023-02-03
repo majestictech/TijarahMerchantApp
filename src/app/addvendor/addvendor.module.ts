@@ -4,18 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditinvoicePageRoutingModule } from './editinvoice-routing.module';
+import { AddvendorPageRoutingModule } from './addvendor-routing.module';
+
+import { AddvendorPage } from './addvendor.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { EditinvoicePage } from './editinvoice.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditinvoicePageRoutingModule,
+    AddvendorPageRoutingModule,
     TranslateModule
   ],
-  declarations: [EditinvoicePage]
+  declarations: [AddvendorPage]
 })
-export class EditinvoicePageModule {}
+export class AddvendorPageModule {}

@@ -9,7 +9,7 @@
 
   <ion-row>
     <ion-col size="6">
-      <ion-searchbar class="customer_search"  placeholder="{{ 'VENDOR.searchbyvendorname' | translate }}"></ion-searchbar>				
+      <ion-searchbar class="customer_search" #searchVendors debounce="500" searchIcon="undefined" placeholder="{{ 'VENDOR.searchbyvendorname' | translate }}" (ionChange)="getItems($event)"></ion-searchbar>				
     </ion-col>
     <ion-col size="3"></ion-col>
     <ion-col size="3" class="ion-text-center">
@@ -22,10 +22,10 @@
 <ion-card>  
   <ion-card-content>
     <ion-list>
-      <ion-item class="vendor-detail">
-        <ion-label><p>Vendor Name</p><p>9874563454</p></ion-label>
-        <ion-label> <p>755645585642358</p></ion-label>
-        <ion-button class="ion-text-center edit-button">
+      <ion-item class="vendor-detail" *ngFor="let vendors of (vendororderlist | async)">
+        <ion-label><p><b>{{vendors.vendorName}}</b></p><p>{{vendors.contactNumber}}</p></ion-label>
+        <ion-label> <p>{{vendors.VatNumber}}</p></ion-label>
+        <ion-button class="ion-text-center edit-button" [routerLink]="['/editvendor']">
 					<span color="Dark"><ion-icon name="create-outline"></ion-icon></span>
         </ion-button>
       </ion-item>
