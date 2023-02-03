@@ -137,6 +137,10 @@ const routes: Routes = [
   },  {
     path: 'viewinvoice',
     loadChildren: () => import('./viewinvoice/viewinvoice.module').then( m => m.ViewinvoicePageModule)
+  },
+  {
+    path: 'invoicedetail',
+    loadChildren: () => import('./invoicedetail/invoicedetail.module').then( m => m.InvoicedetailPageModule)
   }
 
 

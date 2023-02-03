@@ -79,6 +79,9 @@
         </ion-button>
       </ion-item>
     </ion-list>
+    <ion-infinite-scroll #IonInfiniteScroll threshold="100px" (ionInfinite)="loadData('paging', $event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>	
   </ion-card-content>
 </ion-card>
   <!-- <ion-card class="card-item">
