@@ -38,8 +38,8 @@
             <ion-input type="text" value="{{VatNumber}}"  [(ngModel)]="VatNumber" name="VatNumber" (ionInput)="checkRequired($event,'VatNumber')" (keypress)="env.numberOnlyValidation($event,'vat')"></ion-input>
           </ion-item>
         </form>
-        <ion-button *ngIf="requiredFields" expand="block" mode="ios" class="save" (click)="majEditVendor(form);">{{ 'INVOICE.save' | translate }}</ion-button>
-       <ion-button *ngIf="!requiredFields" expand="block" mode="ios" class="save" disabled>{{ 'CUSTOMER.save' | translate }}</ion-button>
+        <ion-button  expand="block" mode="ios" class="save" (click)="majEditVendor(form);">{{ 'INVOICE.save' | translate }}</ion-button>
+      <!--  <ion-button *ngIf="!requiredFields" expand="block" mode="ios" class="save" disabled>{{ 'CUSTOMER.save' | translate }}</ion-button> -->
       </ion-list>
     </ion-card-content>
   </ion-card>

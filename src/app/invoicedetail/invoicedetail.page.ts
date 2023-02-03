@@ -6,10 +6,10 @@ import { EnvService } from '../services/env.service';
 
 @Component({
   selector: 'app-invoicedetail',
-  templateUrl: './viewinvoice.page.html',
-  styleUrls: ['./viewinvoice.page.scss'],
+  templateUrl: './invoicedetail.page.html',
+  styleUrls: ['./invoicedetail.page.scss'],
 })
-export class ViewinvoicePage implements OnInit {
+export class InvoicedetailPage implements OnInit {
 orderDetails = [];
 vendorDetails = [];
 invoiceData: Observable<any>;

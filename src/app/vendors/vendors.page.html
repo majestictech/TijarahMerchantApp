@@ -11,7 +11,7 @@
 
   <ion-row>
     <ion-col size="6">
-      <ion-searchbar class="customer_search" #searchVendors debounce="500" searchIcon="undefined" placeholder="{{ 'VENDOR.searchbyvendorname'| translate }}" (ionChange)="getItems($event)"></ion-searchbar>				
+      <ion-searchbar mode="ios" class="customer_search" #searchVendors debounce="500" searchIcon="undefined" placeholder="{{ 'VENDOR.searchbyvendorname'| translate }}" (ionChange)="getItems($event)"></ion-searchbar>				
     </ion-col>
     <ion-col size="3"></ion-col>
     <ion-col size="3" class="ion-text-center">

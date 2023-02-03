@@ -10,13 +10,23 @@ import { EnvService } from '../services/env.service';
 export class Tab3Page {
   productsList: any = [];
   productData:  Observable<any>;
+  currentPage: number = 1;
+  dataLoading: string = 'Loading Data...';
+
+
   constructor(public productsService: ProductsService,public env: EnvService,) {
 	console.log('Constructor of Tab3 Called');
+  this.loadData('firstload', '');
  }
 
  ngOnInit() {}
-  loadData() 
+  loadData(type,event) 
 	{
+    if(type == 'firstload' || type == 'refresh') {
+			this.currentPage = 1;
+			this.dataLoading = 'Loading Data...';
+			this.productsList = [];
+		}
     /* this.productsService.getProduct().subscribe(res => {
 			this.stockReasons  = res;
 		}); */
@@ -45,7 +55,7 @@ export class Tab3Page {
 
   ionViewWillEnter() 
 	{
-    this.loadData() ;
+    this.loadData('firstload', '');
     alert("one");
   }
 
