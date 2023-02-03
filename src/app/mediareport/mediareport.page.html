@@ -36,11 +36,11 @@
   </ion-row> -->
 
 
-  <ion-row class="ion-padding-horizontal ion-padding-top customdate">
+<!--   <ion-row class="ion-padding-horizontal ion-padding-top customdate">
     <ion-col><ion-input type="date" required ngModel name="startDate" (ionChange)="processDate($event,'start')" value="{{startDate}}" placeholder="From Date"></ion-input></ion-col>
     <ion-col><ion-input type="date" required ngModel name="endDate" (ionChange)="processDate($event,'end')"  value="{{endDate}}" placeholder="To Date"></ion-input></ion-col>
     <ion-button size="small" (click)="selectType()" class="okbtnplus">ok</ion-button>
-  </ion-row>
+  </ion-row> -->
   <ion-chip class="chip-item">
     <ion-label><b>GENERATED REVENUE</b></ion-label>
   </ion-chip>
@@ -49,4 +49,48 @@
   <ion-row>
 	<div id="salesChart" style="width: 100vw; margin: 0 auto"></div>
   </ion-row>
+
+<ion-card>
+  <div class="border">
+    <ion-row class="ion-margin-horizontal plusreport-text">
+      <ion-col size="4" class="ion-text-center">Card
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">{{cardCount}}
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">SAR {{cardAmount | number: '1.2-2'}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-horizontal plusreport-text">
+      <ion-col size="4" class="ion-text-center">Cash
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">{{cashCount}}
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">SAR {{cashAmount | number: '1.2-2'}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-horizontal plusreport-text">
+      <ion-col size="4" class="ion-text-center">Credit
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">{{otherCount}}
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">SAR {{otherAmount | number: '1.2-2'}}
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class="ion-margin-horizontal plusreport-text">
+      <ion-col size="4" class="ion-text-center">Refund
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">{{refundCount}}
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">SAR {{refundAmount | number: '1.2-2'}}
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-card>
+
+
+
 </ion-content>

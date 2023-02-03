@@ -16,7 +16,14 @@ export class MediareportPage implements OnInit {
 	cashAmount = 0;
 	cardAmount = 0;
 	otherAmount = 0;
-
+	cashCount = 0;
+	cardCount = 0;
+	otherCount = 0;
+	multipleCount = 0;
+	multipleAmount = 0;
+	refundAmount = 0;
+	refundCount = 0;
+	salesCount = 0;
 
 
   constructor(public env: EnvService, public reportsService:ReportsService) { }
@@ -30,9 +37,18 @@ loadData() {
 
 this.reportsdata.subscribe(res => {
 	//alert(JSON.stringify(res));
-	this.cashAmount = res['cashAmount'];
-	this.cardAmount = res['cardAmount'];
-	this.otherAmount = res['otherAmount'];	
+	this.refundCount = res['refundCount'];
+		this.cashCount = res['cashCount'];
+		this.cardCount = res['cardCount'];
+		this.otherCount = res['otherCount'];
+		this.multipleCount = res['multipleCount'];
+		
+		this.cashAmount = res['cashAmount'];
+		this.cardAmount = res['cardAmount'];
+		this.otherAmount = res['otherAmount'];
+		this.multipleAmount = res['multipleAmount'];
+		this.refundAmount = res['refundAmount'];
+		this.salesCount = res['salesCount'];
 	alert(123);	
 	alert(this.cardAmount);	
 	this.loadGraph();
@@ -106,11 +122,15 @@ ionViewWillEnter() {
 
 
 	selectType() {
-		this.cashAmount = 0;
-		this.cardAmount = 0;
-		this.otherAmount = 0;
-		
-		this.loadData();
+	this.cashCount = 0;
+	this.cardCount = 0;
+	this.otherCount = 0;
+	
+	this.cashAmount = 0;
+	this.cardAmount = 0;
+	this.otherAmount = 0;
+	
+	this.loadData();
 	  }
 	  
 	  processDate(e,dateType)
