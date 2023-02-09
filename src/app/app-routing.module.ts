@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { TabsPage } from './tabs/tabs.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
+  
+  { path: '', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) },
+  { path: '', loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule) },
+
   {
     path: 'reportsales',
     loadChildren: () => import('./reportsales/reportsales.module').then( m => m.ReportsalesPageModule)
@@ -41,6 +42,13 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'login/:logout',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+	data: {
+      preload: true
+    }
   },
   {
     path: 'settings',
@@ -134,7 +142,8 @@ const routes: Routes = [
       preload: true,
 	  name: 'editvendor'
     }
-  },  {
+  },
+  {
     path: 'viewinvoice',
     loadChildren: () => import('./viewinvoice/viewinvoice.module').then( m => m.ViewinvoicePageModule)
   },

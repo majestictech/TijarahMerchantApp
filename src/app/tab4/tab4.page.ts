@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as HighCharts from 'highcharts';
+import { EnvService } from '../services/env.service';
+
 @Component({
   selector: 'app-tab4',
   templateUrl: 'tab4.page.html',
@@ -7,7 +9,7 @@ import * as HighCharts from 'highcharts';
 })
 export class Tab4Page implements OnInit {
 
-  constructor() {
+  constructor(public env : EnvService) {
   }
 
   ngOnInit() {
@@ -15,6 +17,7 @@ export class Tab4Page implements OnInit {
 
   public async ionViewDidEnter() {
 	console.log('Loading Graph...');
+  console.log(this.env.APP_USER_ID);
 	await this.loadGraph();
 	
 	//setTimeout(() => {this.loadGraph();}, 2000);

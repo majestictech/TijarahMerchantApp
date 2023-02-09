@@ -53,6 +53,8 @@ export class LoginPage implements OnInit {
 			
 			this.env.APP_STORE_ID = logindata['stores'].storeId;
 			this.env.APP_USER_ID = logindata['logindata'].userId;
+			localStorage.setItem('userId',this.env.APP_USER_ID)
+			localStorage.setItem('storeId',this.env.APP_STORE_ID)
 			this.env.PHONE_NUMBER = logindata['logindata'].contactNumber;
 			this.env.display_name = logindata['logindata'].firstName + ' ' +  logindata['logindata'].lastName;
 			this.env.STORE_NAME = logindata['stores'].storeName;
@@ -60,10 +62,9 @@ export class LoginPage implements OnInit {
 			this.env.APP_LANG = logindata['logindata'].defaultLang;
 			this.env.presentToast("Login Successful");
 			this.translateConfigService.setLanguage(this.env.APP_LANG);
-			alert(this.env.APP_STORE_ID);
-			alert("this.env.APP_STORE_ID");
+			
 			//this.hideLoader();
-			this.router.navigate(['/home']);
+			this.router.navigate(['/tabs/tab1']);
 		}
 		else {
 			// Login Failed

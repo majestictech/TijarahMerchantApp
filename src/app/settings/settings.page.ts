@@ -20,7 +20,7 @@ export class SettingsPage implements OnInit {
   }
   
   async majEditShop(form: NgForm){
-	this.http.post<any>(this.env.API_URL + '/updateshop', {id:this.env.APP_STORE_ID, defaultLang:form.value.defaultLang}).subscribe(data => {
+	this.http.post<any>(this.env.API_URL + '/updateshop', {id:sessionStorage.getItem('storeId'), defaultLang:form.value.defaultLang}).subscribe(data => {
 		console.log(data);
 		console.log('data');
 	})

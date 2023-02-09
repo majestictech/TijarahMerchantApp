@@ -8,6 +8,8 @@ import { EnvService } from '../services/env.service';
 })
 export class Tab2Page {
 
-  constructor(public env: EnvService) {}
+  constructor(public env: EnvService) {
+    console.log(this.env.APP_USER_ID);
+  }
 
 }
