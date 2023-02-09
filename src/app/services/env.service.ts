@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Platform, LoadingController } from '@ionic/angular';
 
@@ -7,7 +8,7 @@ import { Platform, LoadingController } from '@ionic/angular';
 })
 export class EnvService {
   APP_LANG = 'en';
-  APP_STORE_ID : any = 505;
+  APP_STORE_ID : any = null;
   APP_SETUP = false;
   APP_USER_ID = null;
   //APP_USER_ID = '87';
@@ -20,13 +21,13 @@ export class EnvService {
   //API_URL = 'https://majestictechnosoft.com/retailb2b/api';
   API_URL = 'http://192.168.1.22/retailb2b/api';
 
-  APP_DEBUG = true;
+  APP_DEBUG = false;
   inputTap = 0;
 
 
 
 
-  constructor(private toastController: ToastController,private loadingController: LoadingController,) { }
+  constructor(private toastController: ToastController,private loadingController: LoadingController, public router: Router) { }
    async presentToast(text) 
   {
 	const toast = await this.toastController.create({
@@ -205,7 +206,12 @@ export class EnvService {
           let numFinal = (num < 10 ? '0' : '') + num;
           return numFinal;
         }
-
-
+      
+    
+        logout(){
+          localStorage.removeItem('userId');
+          localStorage.removeItem('storeId');
+          this.router.navigate(['/login']);
+        }
 
 }

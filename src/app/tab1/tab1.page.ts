@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { EnvService } from '../services/env.service';
 import { TranslateConfigService } from '../services/translate-config.service';
 
@@ -13,13 +12,13 @@ import * as HighCharts from 'highcharts';
 })
 export class Tab1Page {
 
-  constructor(public router: Router, public env: EnvService, private translateConfigService: TranslateConfigService) {
-	this.translateConfigService.setLanguage(this.env.APP_LANG);
-	  if(this.env.APP_USER_ID == null || this.env.APP_USER_ID == '')
-		this.router.navigate(['/login']);
+	storeId:any;
+  constructor(public env: EnvService, private translateConfigService: TranslateConfigService) {
+	
   }
   
   ngOnInit() {
+	this.storeId = sessionStorage.getItem('userId');
 	  
   }
   

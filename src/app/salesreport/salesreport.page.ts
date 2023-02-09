@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as HighCharts from 'highcharts';
+import { EnvService } from '../services/env.service';
 
 @Component({
   selector: 'app-salesreport',
@@ -9,7 +10,7 @@ import * as HighCharts from 'highcharts';
 })
 export class SalesreportPage implements OnInit {
 
-  constructor() {
+  constructor(public env : EnvService) {
   }
 
   ngOnInit() {
@@ -17,6 +18,8 @@ export class SalesreportPage implements OnInit {
 
   public async ionViewDidEnter() {
 	console.log('Loading Graph...');
+	console.log(this.env.APP_USER_ID);
+	console.log(sessionStorage.getItem('userId'));
 	await this.loadGraph();
 	
 	//setTimeout(() => {this.loadGraph();}, 2000);
@@ -24,6 +27,9 @@ export class SalesreportPage implements OnInit {
   
   ionViewDidLoad() {
 	//this.loadGraph();
+  }
+  changeDate(){
+	alert('Date Changes');
   }
   
   loadGraph() {

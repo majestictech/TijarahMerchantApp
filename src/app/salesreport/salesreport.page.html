@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <div class="div-item">
     <ion-buttons slot="start" style="padding-left:30px">
-      <ion-back-button icon="arrow-back-outline" defaultHref="reports" style="color:white" text="">
+      <ion-back-button icon="arrow-back-outline" defaultHref="tabs/tab2" style="color:white" text="">
       </ion-back-button>
     </ion-buttons>
     <ion-row>
@@ -18,7 +18,7 @@
     <span style="padding:8px">
       <div style="background-color: white;border-radius: 10px;padding: 6px;">TU<br><br>13</div>
     </span>
-    <span style="padding:8px">
+    <span style="padding:8px" (click)="changeDate();">
       <div style="background-color: #006c35;color:white;border-radius: 10px;padding: 6px;">WE<br><br>14</div>
     </span>
     <span style="padding:8px">
